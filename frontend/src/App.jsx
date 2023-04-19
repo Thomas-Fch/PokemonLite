@@ -9,6 +9,8 @@ function App() {
   const [pokemonsArray, setPokemonsArray] = useState([]);
   const [pokemonsStarter, setPokemonsStarter] = useState([]);
 
+  console.info(pokemonsArray);
+
   useEffect(() => {
     const fetchData = async () => {
       const tabPokemon = [];

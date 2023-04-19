@@ -12,11 +12,7 @@
     "prettier/prettier": [
       "error",
       {
-<<<<<<< Updated upstream
         "endOfLine": "auto"
-=======
-        "endOfLine": "auto",
->>>>>>> Stashed changes
       }
     ],
     "no-console": "off",
