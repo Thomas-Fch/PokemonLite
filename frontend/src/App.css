@@ -1,4 +1,5 @@
-body {
+
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -53,4 +54,41 @@ code {
 
 button {
   font-size: calc(10px + 2vmin);
+} */
+.pokemonCards {
+  margin-right: 10px;
 }
+h2 {
+  margin-top: 0px;
+}
+
+/* .pokemonCard {
+  background-size: 300%;
+  background-position: center;
+  flex-grow: 1;
+  margin-right : 10px; 
+  overflow: hidden;
+  position: relative;
+}
+
+.pokemonCard h2 {
+  color: white;
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pokemonCard::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  padding-top: 10px;
+} */
