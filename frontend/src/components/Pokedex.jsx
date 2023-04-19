@@ -7,7 +7,7 @@ function Pokedex({ pokemonsArray }) {
   return (
     <>
       {pokemonsArray.map((pokemon) => {
-        return <PokedexCard pokemon={pokemon} />;
+        return <PokedexCard key={pokemon.name} pokemon={pokemon} />;
       })}
     </>
   );

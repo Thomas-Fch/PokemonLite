@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import colors from "./Colors";
+import colors from "./colors";
 import iconType from "./iconType";
 
 function PokedexCard({ pokemon }) {
