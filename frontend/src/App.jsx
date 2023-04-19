@@ -1,20 +1,32 @@
 import React, { useEffect, useState } from "react";
-import Home from "./pages/Home";
 
 import "./App.css";
 
 function App() {
-  const [pokemonsArray, setPokemonsArray] = useState;
+  const [pokemonsArray, setPokemonsArray] = useState([]);
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon?limit=25`)
       .then((response) => response.json())
-      .then((data) => setPokemonsArray(data.results));
+      .then((data) => {
+        data.results.forEach((pokemon) => {
+          fetch(pokemon.url)
+            .then((res) => res.json())
+            .then((pokemonData) =>
+              setPokemonsArray((prev) => [...prev, pokemonData])
+            );
+        });
+      });
   }, []);
+
+  useEffect(() => {
+    console.info(pokemonsArray);
+  }, [pokemonsArray]);
 
   return (
     <div className="App">
-      <Home />
-      <p>{pokemonsArray.map((pokemon) => pokemon)}</p>
+      <h1>fg</h1>
+      {/* {pokemonsArray[0].weight} */}
+      {pokemonsArray.map((pokemon) => pokemon.name)}
     </div>
   );
 }
