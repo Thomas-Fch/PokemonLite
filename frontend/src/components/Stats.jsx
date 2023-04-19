@@ -2,12 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function Stats({ pokemon }) {
+  console.info(pokemon.getTypes());
   return (
     <>
       <h1>
         {pokemon.name} #{pokemon.id.toString().padStart(3, "0")}
       </h1>
-      <h2>{pokemon.type[0].type.name}</h2>
+      <h2>{pokemon.getTypes().join(" - ")}</h2>
       <img src={pokemon.image} alt={pokemon.name} />
       <p>
         {pokemon.stats[0].stat.name} = {pokemon.stats[0].base_stat}

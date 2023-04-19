@@ -11,6 +11,18 @@ class Pokemon {
     this.image = pokemonObject.sprites.other["official-artwork"].front_default;
   }
 
+  getFirstType() {
+    return this.type[0].type.name;
+  }
+
+  getSecondType() {
+    return this.type[1].type.name;
+  }
+
+  getTypes() {
+    return this.type.map((typeObject) => typeObject.type.name);
+  }
+
   setLife(value) {
     this.life = value;
   }

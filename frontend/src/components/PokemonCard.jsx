@@ -6,7 +6,7 @@ function Card({ pokemon }) {
     <figure>
       <h1>{pokemon.name}</h1>
       <img src={pokemon.image} alt={pokemon.name} />
-      <figcaption>{pokemon.type}</figcaption>
+      {/* <figcaption>{pokemon.type[0].type.name}</figcaption> */}
     </figure>
   );
 }
