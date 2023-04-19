@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Pokemon from "./Classes/PokemonStats";
 import Stats from "./components/Stats";
+// import Card from "./components/PokemonCard";
 // import LaunchFight from "./components/LaunchFight";
 
 import "./App.css";
@@ -39,7 +40,7 @@ function App() {
 
   return (
     <div className="App">
-      <p>TEST</p>
+      <h2>Pourquoi ce TEST ?</h2>
       {console.info(pokemonsArray)}
       {console.info(pokemonsStarter)}
       {pokemonsArray.map((pokemon) => (
