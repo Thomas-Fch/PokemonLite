@@ -54,3 +54,42 @@ code {
 button {
   font-size: calc(10px + 2vmin);
 }
+
+
+/* -------------------------------------------------------------------------- */
+/*                                   POKEDEX                                  */
+/* -------------------------------------------------------------------------- */
+div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+div .cardPokedex{ 
+  width: 100px;
+  border-radius: 100%;
+  padding: 20px;
+  text-align: center;
+}
+
+.imgPokedex{
+  /* padding: 10px; */
+  border-radius: 100%;
+ 
+}
+.ulPokedex{
+  list-style-type: none;
+  display: flex;
+  text-align: center;
+}
+
+.liPokedex{
+  width: 80px;
+  border-radius: 15px;
+  padding: 5px  
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                                                            */
+/* -------------------------------------------------------------------------- */
