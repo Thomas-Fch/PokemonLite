@@ -1,20 +1,53 @@
 import React, { useEffect, useState } from "react";
-import Home from "./pages/Home";
+import Pokemon from "./Classes/PokemonStats";
+import Stats from "./components/Stats";
+// import PokemonCard from "./components/PokemonCard.jsx";
 
 import "./App.css";
 
 function App() {
-  const [pokemonsArray, setPokemonsArray] = useState;
+  const [pokemonsArray, setPokemonsArray] = useState([]);
+  const [pokemonsStarter, setPokemonsStarter] = useState([]);
+
   useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon?limit=25`)
-      .then((response) => response.json())
-      .then((data) => setPokemonsArray(data.results));
+    const fetchData = async () => {
+      const tabPokemon = [];
+      const starter = [];
+      const idStarter = [1, 4, 7];
+
+      for (let i = 1; i <= 31; i += 1) {
+        tabPokemon.push(`https://pokeapi.co/api/v2/pokemon/${i}`);
+      }
+      const responses = await Promise.all(tabPokemon.map((url) => fetch(url)));
+      const data = await Promise.all(
+        responses.map((response) => response.json())
+      );
+
+      const pokemons = data.map((pokemon) => new Pokemon(pokemon));
+
+      pokemons.forEach((pokemon) => {
+        if (idStarter.includes(pokemon.id)) {
+          starter.push(pokemon);
+        }
+      });
+
+      setPokemonsArray(pokemons);
+      setPokemonsStarter(starter);
+    };
+    fetchData();
   }, []);
 
   return (
     <div className="App">
-      <Home />
-      <p>{pokemonsArray.map((pokemon) => pokemon)}</p>
+      <p>TEST</p>
+      {console.info(pokemonsArray)}
+      {console.info(pokemonsStarter)}
+      {pokemonsArray.map((pokemon) => (
+        <Stats key={pokemon.name} pokemon={pokemon} />
+      ))}
+      {/* {pokemonsStarter.map((pokemon) =>
+  <PokemonCard key={pokemon.name} pokemon={pokemon} />
+  )} */}
     </div>
   );
 }
