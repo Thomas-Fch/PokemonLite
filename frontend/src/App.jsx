@@ -40,7 +40,7 @@ function App() {
 
   return (
     <div className="App">
-      <h2>TEST</h2>
+      <h2>Pourquoi ce TEST ?</h2>
       {console.info(pokemonsArray)}
       {console.info(pokemonsStarter)}
       {pokemonsArray.map((pokemon) => (
