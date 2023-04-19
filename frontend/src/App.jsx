@@ -1,21 +1,40 @@
 import React, { useEffect, useState } from "react";
+import Pokemon from "./Classes/PokemonStats";
+// import Stats from "./components/Stats";
+// import LaunchFight from "./components/LaunchFight";
 import "./App.css";
 import Pokedex from "./components/Pokedex";
 
 function App() {
   const [pokemonsArray, setPokemonsArray] = useState([]);
+  const [pokemonsStarter, setPokemonsStarter] = useState([]);
+
   useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon?limit=25`)
-      .then((response) => response.json())
-      .then((data) => {
-        data.results.forEach((pokemon) => {
-          fetch(pokemon.url)
-            .then((res) => res.json())
-            .then((pokemonData) =>
-              setPokemonsArray((prevState) => [...prevState, pokemonData])
-            );
-        });
+    const fetchData = async () => {
+      const tabPokemon = [];
+      const starter = [];
+      const idStarter = [1, 4, 7];
+
+      for (let i = 1; i <= 31; i += 1) {
+        tabPokemon.push(`https://pokeapi.co/api/v2/pokemon/${i}`);
+      }
+      const responses = await Promise.all(tabPokemon.map((url) => fetch(url)));
+      const data = await Promise.all(
+        responses.map((response) => response.json())
+      );
+
+      const pokemons = data.map((pokemon) => new Pokemon(pokemon));
+
+      pokemons.forEach((pokemon) => {
+        if (idStarter.includes(pokemon.id)) {
+          starter.push(pokemon);
+        }
       });
+
+      setPokemonsArray(pokemons);
+      setPokemonsStarter(starter);
+    };
+    fetchData();
   }, []);
 
   // useEffect(() => {
@@ -24,9 +43,13 @@ function App() {
 
   return (
     <div className="App">
-      {/* <p>{pokemonsArray.map((pokemon) => pokemon)}</p> */}
-
-      <Pokedex pokemonArray={pokemonsArray} />
+      {/* <p>TEST</p> */}
+      {console.info(pokemonsArray)}
+      {console.info(pokemonsStarter)}
+      {/* {pokemonsArray.map((pokemon) => (
+        <PokedexCard key={pokemon.name} pokemon={pokemon} />
+      ))} */}
+      <Pokedex pokemonsArray={pokemonsArray} />
     </div>
   );
 }

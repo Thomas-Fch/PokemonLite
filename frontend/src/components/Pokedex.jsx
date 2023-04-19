@@ -3,10 +3,10 @@ import PokedexCard from "./PokedexCard";
 
 // console.log(PokedexCard);
 
-function Pokedex({ pokemonArray }) {
+function Pokedex({ pokemonsArray }) {
   return (
     <>
-      {pokemonArray.map((pokemon) => {
+      {pokemonsArray.map((pokemon) => {
         return <PokedexCard pokemon={pokemon} />;
       })}
     </>
@@ -14,7 +14,7 @@ function Pokedex({ pokemonArray }) {
 }
 
 Pokedex.propTypes = {
-  pokemonArray: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  pokemonsArray: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
 
 export default Pokedex;

@@ -1,6 +1,6 @@
 const iconType = {
-  normal: "../assets/icone/normal.png",
-  fire: "../assets/icone/fairy.png",
+  normal: "../assets/icone/grass.png",
+  fire: "../assets/icone/fire.png",
   water: "../assets/icone/water.png",
   electric: "../assets/icone/electric.png",
   grass: "../assets/icone/grass.png",
