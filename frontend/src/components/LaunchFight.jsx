@@ -1,53 +1,45 @@
-// import { useEffect, useState } from "react";
-
 function LaunchFight({ pokemon }) {
-  // const [bulbasaur, setBulbasaur] = useState(null);
-  // const [rattata, setRattata] = useState(null);
-
-  // useEffect(() => {
-  //   if (pokemon) {
-  //     setBulbasaur(pokemon[0]);
-  //     setRattata(pokemon[18]);
-  //   }
-  // }, [pokemon]);
-
   const bulbasaur = pokemon[0];
   const rattata = pokemon[18];
 
   console.info(bulbasaur, rattata);
 
-  // const score = (fighter1, fighter2) => {
-  //   return fighter1.isAlive()
-  //     ? {
-  //         winner: fighter1,
-  //         loser: fighter2,
-  //       }
-  //     : {
-  //         winner: fighter2,
-  //         loser: fighter1,
-  //       };
-  // };
+  const score = (fighter1, fighter2) => {
+    return fighter1.isAlive()
+      ? {
+          winner: fighter1,
+          loser: fighter2,
+        }
+      : {
+          winner: fighter2,
+          loser: fighter1,
+        };
+  };
 
-  // {
-  //   let round = 1;
+  const roundDisplay = (fighter1, fighter2) => {
+    return `${fighter1.name} 🗡️  ${fighter2.name} 💙 ${fighter2.name} : ${fighter2.life}`;
+  };
 
-  //   while (bulbasaur.isAlive() && rattata.isAlive()) {
-  //     console.log(`🕛 Round #${round}`);
+  {
+    let round = 1;
 
-  //     bulbasaur.fight(rattata);
-  //     console.log(roundDisplay(bulbasaur, rattata));
+    while (bulbasaur.isAlive() && rattata.isAlive()) {
+      console.info(`🕛 Round #${round}`);
 
-  //     rattata.fight(bulbasaur);
-  //     console.log(roundDisplay(rattata, bulbasaur));
+      bulbasaur.fight(rattata);
+      console.info(roundDisplay(bulbasaur, rattata));
 
-  //     round += 1;
-  //   }
+      rattata.fight(bulbasaur);
+      console.info(roundDisplay(rattata, bulbasaur));
 
-  //   const result = score(bulbasaur, rattata);
+      round += 1;
+    }
 
-  //   console.log(`💀 ${result.loser.name} is dead`);
-  //   console.log(`🏆 ${result.winner.name} wins (💙 ${result.winner.life} )`);
-  // }
+    const result = score(bulbasaur, rattata);
+
+    console.info(`💀 ${result.loser.name} is dead`);
+    console.info(`🏆 ${result.winner.name} wins (💙 ${result.winner.life} )`);
+  }
 }
 
 export default LaunchFight;

@@ -26,7 +26,7 @@ class Pokemon {
   }
 
   getRandomInt(max) {
-    console.warn(this.attack);
+    console.info(this.attack);
     return 1 + Math.floor(Math.random() * max);
   }
 

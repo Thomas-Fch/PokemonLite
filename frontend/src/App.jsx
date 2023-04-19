@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Pokemon from "./Classes/PokemonStats";
 import Stats from "./components/Stats";
-// import PokemonCard from "./components/PokemonCard.jsx";
+// import LaunchFight from "./components/LaunchFight";
 
 import "./App.css";
 
@@ -45,9 +45,7 @@ function App() {
       {pokemonsArray.map((pokemon) => (
         <Stats key={pokemon.name} pokemon={pokemon} />
       ))}
-      {/* {pokemonsStarter.map((pokemon) =>
-  <PokemonCard key={pokemon.name} pokemon={pokemon} />
-  )} */}
+      {/* <LaunchFight pokemon={pokemonsArray} /> */}
     </div>
   );
 }
