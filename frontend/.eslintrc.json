@@ -47,5 +47,6 @@
         "extensions": [".js", ".jsx"]
       }
     }
-  }
+  },
+  "prettier/prettier": ["error", { "endOfLine": "auto" }]
 }
