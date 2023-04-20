@@ -1,15 +1,17 @@
 import PropTypes from "prop-types";
 import PokedexCard from "./PokedexCard";
 
-// console.log(PokedexCard);
-
 function Pokedex({ pokemonsArray }) {
   return (
-    <>
-      {pokemonsArray.map((pokemon) => {
-        return <PokedexCard key={pokemon.name} pokemon={pokemon} />;
-      })}
-    </>
+    <div id="pokedex">
+      <input className="SearchBarPok" type="Search Bar" />
+      {/* <div className="SearchBarPok">Search Bar</div> */}
+      <div className="cardPokedex">
+        {pokemonsArray.map((pokemon) => {
+          return <PokedexCard key={pokemon.name} pokemon={pokemon} />;
+        })}
+      </div>
+    </div>
   );
 }
 

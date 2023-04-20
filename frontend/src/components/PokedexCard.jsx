@@ -6,7 +6,7 @@ import iconType from "./iconType";
 function PokedexCard({ pokemon }) {
   const [typeImage, setTypeImage] = useState("");
   const loadImage = () => {
-    import(iconType[pokemon.type[0].type.name]).then((image) => {
+    import(iconType[pokemon.getFirstType()]).then((image) => {
       setTypeImage(image.default);
     });
   };
@@ -14,20 +14,12 @@ function PokedexCard({ pokemon }) {
   useEffect(() => {
     loadImage();
   }, []);
-  // render() {
-  //   const { image } = this.state;
-  //   return (
-  //     <Fragment>
-  //       {image && <img src={image} alt="" />}
-  //     </Fragment>
-  //   );
-  // }
 
   return (
     <div id="pokedexCard">
       <figure
         className="cardPokedex"
-        style={{ backgroundColor: colors[pokemon.type[0].type.name] }}
+        style={{ backgroundColor: colors[pokemon.getFirstType()] }}
       >
         <img
           className="imgPokedex"
@@ -37,46 +29,21 @@ function PokedexCard({ pokemon }) {
         />
       </figure>
       <ul className="ulPokedex">
-        <li className="liPokedex">{pokemon.name}</li>
-        <li className="liPokedex">{pokemon.type[0].type.name}</li>
-        <li
-          className="liPokedex"
-          style={{ backgroundColor: colors[pokemon.type[0].type.name] }}
-        >
-          <div> {pokemon.id?.toString().padStart(3, "0")}</div>
-          <img className="liPokedex" src={typeImage} alt="" />
+        <li className="liPokedex">
+          #{pokemon.id?.toString().padStart(3, "0")}
         </li>
+        <div id="name_type">
+          <li className="liPokedex">{pokemon.name}</li>
+          <li
+            className="liPokedexType"
+            style={{ backgroundColor: colors[pokemon.getFirstType()] }}
+          >
+            <div>{pokemon.getFirstType()}</div>
+            <img className="liPokedexTypeImage" src={typeImage} alt="" />
+          </li>
+        </div>
       </ul>
     </div>
-
-    // <div id="pokedexCard">
-    //   <figure
-    //     className="cardPokedex"
-    //     // style={{ backgroundColor: colors[pokemon.getTypes()] }}
-    //   >
-    //     <img
-    //       className="imgPokedex"
-    //       style={{ width: "100px" }}
-    //       src={pokemon.image}
-    //       alt="pokemon"
-    //     />
-    //   </figure>
-
-    //   <ul className="ulPokedex">
-    //     <li className="liPokedex">{pokemon.name}</li>
-    //     <li className="liPokedex">
-    //       #{pokemon.id?.toString().padStart(3, "0")}
-    //     </li>
-    //     <li
-    //       className="liPokedex"
-    //       // style={{ backgroundColor: colors[pokemon.getFirstType()] }}
-    //     >
-    //       {pokemon.types[0].type.name}
-    //       {iconType[pokemon.getTypes()]}
-    //       {/* <img src={iconType[pokemon.getFirstType()]} alt="" /> */}
-    //     </li>
-    //   </ul>
-    // </div>
   );
 }
 
