@@ -17,6 +17,12 @@
   },
   "plugins": ["react", "import"],
   "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "no-console": "off",
     "no-restricted-syntax": [
       "error",
@@ -33,11 +39,10 @@
       {
         "assert": "either"
       }
-    ],
-
-    "prettier/prettier": ["error", { "endOfLine": "auto" }]
+    ]
   },
-  "settings": {
+
+    "settings": {
     "import/resolver": {
       "eslint-import-resolver-custom-alias": {
         "alias": {
@@ -50,4 +55,5 @@
       }
     }
   }
-}
+  }
+
