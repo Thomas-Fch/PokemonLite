@@ -8,7 +8,7 @@ function PokemonCard({ pokemon }) {
     <figure
       className="pokemon"
       style={{
-        backgroundColor: getColorsByType[pokemon.type[0].type.name],
+        backgroundColor: getColorsByType(pokemon.type[0].type.name),
       }}
     >
       <h1 className="nom">{pokemon.name}</h1>

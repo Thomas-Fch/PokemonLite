@@ -1,3 +1,12 @@
+.nom{
+  color: white ; 
+  font-size: 2rem;
+  font-weight : bold ; 
+}
+h1 {
+  margin : 0 auto ; 
+}
+
 
 /* body {
   margin: 0;
@@ -55,12 +64,12 @@ code {
 button {
   font-size: calc(10px + 2vmin);
 } */
-.pokemonCards {
+/* .pokemonCards {
   margin-right: 10px;
 }
 h2 {
   margin-top: 0px;
-}
+} */
 
 /* .pokemonCard {
   background-size: 300%;
