@@ -3,6 +3,9 @@ import Pokemon from "./Classes/Pokemon";
 import Stats from "./components/Stats";
 import LaunchFight from "./components/LaunchFight";
 
+import Bag from "./components/Bag";
+import Road from "./components/Road";
+
 import "./App.css";
 
 function App() {
@@ -46,6 +49,9 @@ function App() {
         <Stats key={pokemon.name} pokemon={pokemon} />
       ))}
       <LaunchFight pokemon={pokemonsArray} />
+
+      <Road />
+      <Bag />
     </div>
   );
 }
