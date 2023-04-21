@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Pokemon from "./Classes/PokemonStats";
-// import Stats from "./components/Stats";
-// import LaunchFight from "./components/LaunchFight";
 import "./App.css";
 import Pokedex from "./components/Pokedex";
 
@@ -37,18 +35,8 @@ function App() {
     fetchData();
   }, []);
 
-  // useEffect(() => {
-  //   console.log(pokemonsArray)
-  // }, [pokemonsArray])
-
   return (
     <div className="App">
-      {/* <p>TEST</p> */}
-      {console.info(pokemonsArray)}
-      {console.info(pokemonsStarter)}
-      {/* {pokemonsArray.map((pokemon) => (
-        <PokedexCard key={pokemon.name} pokemon={pokemon} />
-      ))} */}
       <Pokedex pokemonsArray={pokemonsArray} />
     </div>
   );

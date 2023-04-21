@@ -101,13 +101,6 @@ button {
   z-index: 5;
   transform: rotate(-20deg);
   position: fixed;
-  clip-path: ;
-
-  /* left: 86.82%;
-  right: -93.49%; */
-  /* top: 42.95%;
-  bottom: -2.95%;
-  transform: matrix(-0.98, -0.18, -0.18, 0.98, 0, 0);  */
 }
 
 
@@ -137,7 +130,6 @@ div .cardPokedex{
 }
 
 .imgPokedex{
-  /* padding: 10px; */
   border-radius: 100%;
  
 }
