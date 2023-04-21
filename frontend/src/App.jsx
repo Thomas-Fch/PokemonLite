@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Pokemon from "./Classes/PokemonStats";
+import Pokemon from "./Classes/Pokemon";
 import Stats from "./components/Stats";
 import LaunchFight from "./components/LaunchFight";
 

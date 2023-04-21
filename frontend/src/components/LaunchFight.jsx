@@ -1,45 +1,75 @@
+import PropTypes from "prop-types";
+
 function LaunchFight({ pokemon }) {
-  const bulbasaur = pokemon[0];
-  const rattata = pokemon[18];
+  const attacker = pokemon[0];
+  const defender = pokemon[18];
 
-  console.info(bulbasaur, rattata);
-
-  const score = (fighter1, fighter2) => {
-    return fighter1.isAlive()
-      ? {
-          winner: fighter1,
-          loser: fighter2,
-        }
-      : {
-          winner: fighter2,
-          loser: fighter1,
-        };
-  };
-
-  const roundDisplay = (fighter1, fighter2) => {
-    return `${fighter1.name} 🗡️  ${fighter2.name} 💙 ${fighter2.name} : ${fighter2.life}`;
-  };
-
-  {
-    let round = 1;
-
-    while (bulbasaur.isAlive() && rattata.isAlive()) {
-      console.info(`🕛 Round #${round}`);
-
-      bulbasaur.fight(rattata);
-      console.info(roundDisplay(bulbasaur, rattata));
-
-      rattata.fight(bulbasaur);
-      console.info(roundDisplay(rattata, bulbasaur));
-
-      round += 1;
+  function gameStart(attack, defend) {
+    let firstAttacker;
+    let secondAttacker;
+    if (attack.speed > defend.speed) {
+      firstAttacker = attacker;
+      secondAttacker = defender;
+    } else {
+      firstAttacker = defender;
+      secondAttacker = attacker;
     }
-
-    const result = score(bulbasaur, rattata);
-
-    console.info(`💀 ${result.loser.name} is dead`);
-    console.info(`🏆 ${result.winner.name} wins (💙 ${result.winner.life} )`);
+    return [firstAttacker, secondAttacker];
   }
+
+  if (attacker && defender) {
+    console.info(attacker, defender);
+    const score = (fighter1, fighter2) => {
+      return fighter1.isAlive()
+        ? {
+            winner: fighter1,
+            loser: fighter2,
+          }
+        : {
+            winner: fighter2,
+            loser: fighter1,
+          };
+    };
+
+    const roundDisplay = (fighter1, fighter2) => {
+      return `${fighter1.name} 🗡️  ${fighter2.name} 💙 ${fighter2.name} : ${fighter2.life}`;
+    };
+
+    {
+      let round = 1;
+
+      while (attacker.isAlive() && defender.isAlive()) {
+        console.info(`🕛 Round #${round}`);
+        defender.fight(attacker);
+        attacker.fight(defender);
+        // gameStart(defender, attacker);
+        console.info(roundDisplay(attacker, defender));
+        console.info(roundDisplay(defender, attacker));
+
+        round += 1;
+      }
+
+      const result = score(attacker, defender);
+
+      console.info(`💀 ${result.loser.name} is dead`);
+      console.info(`🏆 ${result.winner.name} wins (💙 ${result.winner.life} )`);
+    }
+  }
+
+  return (
+    <div>
+      <h1>hhfhfh</h1>
+    </div>
+  );
 }
+
+LaunchFight.propTypes = {
+  pokemon: PropTypes.arrayOf(
+    PropTypes.shape({
+      fight: PropTypes.func,
+      isAlive: PropTypes.func,
+    })
+  ).isRequired,
+};
 
 export default LaunchFight;

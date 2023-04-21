@@ -22,6 +22,10 @@ class Pokemon {
       const damages = Math.max(attackPoints - defender.defence, 0);
 
       defender.setLife(Math.max(defender.life - damages, 0));
+
+      if (defender.isAlive()) {
+        defender.fight(this);
+      }
     }
   }
 
