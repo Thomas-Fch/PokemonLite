@@ -30,7 +30,7 @@
 // launchFight() {
 //   // utiliser la méthode fight de la class Pokemon
 //   // utiliser la méthode isAlive()
-//   // faire la bouble de combat ici 
+//   // faire la bouble de combat ici
 //   // mais n'aura-t-on pas le même problème par rapport au rendu
-  
+
 // }

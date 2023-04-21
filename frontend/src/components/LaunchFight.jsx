@@ -4,18 +4,18 @@ function LaunchFight({ pokemon }) {
   const attacker = pokemon[0];
   const defender = pokemon[18];
 
-  function gameStart(attack, defend) {
-    let firstAttacker;
-    let secondAttacker;
-    if (attack.speed > defend.speed) {
-      firstAttacker = attacker;
-      secondAttacker = defender;
-    } else {
-      firstAttacker = defender;
-      secondAttacker = attacker;
-    }
-    return [firstAttacker, secondAttacker];
-  }
+  // function gameStart(attack, defend) {
+  //   let firstAttacker;
+  //   let secondAttacker;
+  //   if (attack.speed > defend.speed) {
+  //     firstAttacker = attacker;
+  //     secondAttacker = defender;
+  //   } else {
+  //     firstAttacker = defender;
+  //     secondAttacker = attacker;
+  //   }
+  //   return [firstAttacker, secondAttacker];
+  // }
 
   if (attacker && defender) {
     console.info(attacker, defender);
