@@ -17,17 +17,14 @@ function PokedexCard({ pokemon }) {
 
   return (
     <div id="pokedexCard">
-      <figure
-        className="cardPokedex"
-        style={{ backgroundColor: colors[pokemon.getFirstType()] }}
-      >
+      <div className="cardPokedex">
         <img
           className="imgPokedex"
-          style={{ width: "100px" }}
+          style={{ backgroundColor: colors[pokemon.getFirstType()] }}
           src={pokemon.image}
           alt="pokemon"
         />
-      </figure>
+      </div>
       <ul className="ulPokedex">
         <li className="liPokedex">
           #{pokemon.id?.toString().padStart(3, "0")}

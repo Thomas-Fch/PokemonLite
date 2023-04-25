@@ -5,7 +5,6 @@ import Pokedex from "./components/Pokedex";
 
 function App() {
   const [pokemonsArray, setPokemonsArray] = useState([]);
-  const [pokemonsStarter, setPokemonsStarter] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,7 +29,6 @@ function App() {
       });
 
       setPokemonsArray(pokemons);
-      setPokemonsStarter(starter);
     };
     fetchData();
   }, []);
