@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Pokemon from "./Classes/PokemonStats";
-import Stats from "./components/Stats";
-import LaunchFight from "./components/LaunchFight";
+import Navbar from "./components/Navbar";
+import GetStarter from "./components/GetStarter";
 
-import "./App.css";
+import "./App.scss";
 
 function App() {
   const [pokemonsArray, setPokemonsArray] = useState([]);
   const [pokemonsStarter, setPokemonsStarter] = useState([]);
+  const [pokemonTeam, setPokemonTeam] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,13 +44,12 @@ function App() {
 
   return (
     <div className="App">
-      <p>TEST</p>
+      <h2>TEST</h2>
       {console.info(pokemonsArray)}
       {console.info(pokemonsStarter)}
-      {pokemonsArray.map((pokemon) => (
-        <Stats key={pokemon.name} pokemon={pokemon} />
-      ))}
-      <LaunchFight pokemon={pokemonsArray} />
+      {console.info(pokemonTeam)}
+      <GetStarter pokemon={pokemonsStarter} setPokemonTeam={setPokemonTeam} />
+      <Navbar />
     </div>
   );
 }
