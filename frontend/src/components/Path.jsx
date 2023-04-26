@@ -1,12 +1,9 @@
-import React from "react";
+import PropTypes from "prop-types";
 import iconeFight from "../assets/road/rencontre.png";
 
-function Road() {
-  const handleClick = () => {
-    console.info("FIGHT!!!");
-  };
+function Path({ handleClick }) {
   return (
-    <div className="road">
+    <div className="path">
       <button className="btn-fight" onClick={handleClick} type="submit">
         <img src={iconeFight} alt="icone-fight" className="icone-fight" />
       </button>
@@ -14,4 +11,8 @@ function Road() {
   );
 }
 
-export default Road;
+Path.propTypes = {
+  handleClick: PropTypes.func.isRequired,
+};
+
+export default Path;

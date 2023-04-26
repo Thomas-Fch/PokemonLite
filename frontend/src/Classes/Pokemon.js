@@ -3,6 +3,7 @@ class Pokemon {
     this.name = pokemonObject.name;
     this.stats = pokemonObject.stats;
     this.life = pokemonObject.stats[0].base_stat;
+    this.max_life = pokemonObject.stats[0].base_stat;
     this.attack = pokemonObject.stats[1].base_stat;
     this.defence = pokemonObject.stats[2].base_stat;
     this.speed = pokemonObject.stats[5].base_stat;
@@ -17,16 +18,23 @@ class Pokemon {
 
   fight(defender) {
     if (defender instanceof Pokemon) {
-      const attackPoints = this.getRandomInt(this.attack);
+      setTimeout(() => {
+        const attackPoints = this.getRandomInt(this.attack);
 
-      const damages = Math.max(attackPoints - defender.defence, 0);
+        const damages = Math.max(
+          attackPoints - Math.round(defender.defence * 0.5),
+          0
+        );
 
-      defender.setLife(Math.max(defender.life - damages, 0));
-
-      if (defender.isAlive()) {
-        defender.fight(this);
-      }
+        defender.setLife(Math.max(defender.life - damages, 0));
+        console.warn(attackPoints, damages, defender.life, this.life);
+        if (defender.isAlive()) {
+          defender.fight(this);
+          console.info(`${defender.name} is alive`);
+        }
+      }, 1000);
     }
+    return defender.life;
   }
 
   getRandomInt(max) {

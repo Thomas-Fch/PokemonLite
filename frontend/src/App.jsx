@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Pokemon from "./Classes/Pokemon";
-import Stats from "./components/Stats";
-import LaunchFight from "./components/LaunchFight";
-
-import Bag from "./components/Bag";
-import Road from "./components/Road";
+import Arena from "./Classes/Arena";
+import Path from "./components/Path";
+import Battle from "./components/Battle";
+import GameOver from "./components/GameOver";
 
 import "./App.css";
 
 function App() {
   const [pokemonsArray, setPokemonsArray] = useState([]);
   const [pokemonsStarter, setPokemonsStarter] = useState([]);
+  const [arena, setArena] = useState({});
+  const [mode, setMode] = useState("start");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,18 +41,38 @@ function App() {
     fetchData();
   }, []);
 
+  const handleClick = () => {
+    setMode("battle");
+  };
+  // const arena = new Arena(pokemonsArray[0], pokemonsArray[18]);
+
+  useEffect(() => {
+    setArena(new Arena(pokemonsArray[0], pokemonsArray[24]));
+  }, [pokemonsArray]);
+
+  useEffect(() => {
+    console.info("FROM APP", arena);
+  }, [arena]);
+
+  const handleArenaChange = (newArena) => {
+    setArena(newArena);
+  };
+
   return (
     <div className="App">
-      <p>TEST</p>
       {console.info(pokemonsArray)}
       {console.info(pokemonsStarter)}
-      {pokemonsArray.map((pokemon) => (
-        <Stats key={pokemon.name} pokemon={pokemon} />
-      ))}
-      <LaunchFight pokemon={pokemonsArray} />
 
-      <Road />
-      <Bag />
+      {mode === "start" && <Path handleClick={handleClick} />}
+      {mode === "battle" && (
+        <Battle
+          handleArenaChange={handleArenaChange}
+          arena={arena}
+          mode={mode}
+          setMode={setMode}
+        />
+      )}
+      {mode === "gameOver" && <GameOver setMode={setMode} />}
     </div>
   );
 }
