@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Pokemon from "./Classes/PokemonStats";
-import Stats from "./components/Stats";
-// import Card from "./components/PokemonCard";
-// import LaunchFight from "./components/LaunchFight";
-
 import "./App.css";
+import Pokedex from "./components/Pokedex";
 
 function App() {
   const [pokemonsArray, setPokemonsArray] = useState([]);
-  const [pokemonsStarter, setPokemonsStarter] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,20 +29,13 @@ function App() {
       });
 
       setPokemonsArray(pokemons);
-      setPokemonsStarter(starter);
     };
     fetchData();
   }, []);
 
   return (
     <div className="App">
-      <h2>Pourquoi ce TEST ?</h2>
-      {console.info(pokemonsArray)}
-      {console.info(pokemonsStarter)}
-      {pokemonsArray.map((pokemon) => (
-        <Stats key={pokemon.name} pokemon={pokemon} />
-      ))}
-      {/* <LaunchFight pokemon={pokemonsArray} /> */}
+      <Pokedex pokemonsArray={pokemonsArray} />
     </div>
   );
 }
