@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Pokemon from "./Classes/PokemonStats";
-
-import PokemonCards from "./components/PokemonCard";
+import Starter from "./components/Starter";
+// import PokemonCards from "./components/PokemonCards";
 import "./App.css";
-// import PokemonInfoCards from "./components/PokemonInfoCards";
 
 function App() {
   const [pokemonsArray, setPokemonsArray] = useState([]);
@@ -42,14 +41,7 @@ function App() {
   return (
     <div>
       {console.info(pokemonsStarter)}
-      <h1>
-        Choose your <br /> starter
-      </h1>
-      <div style={{ display: "flex", flexDirection: "row" }}>
-        {pokemonsStarter.map((pokemon) => (
-          <PokemonCards pokemon={pokemon} key={pokemon.name} />
-        ))}
-      </div>
+      <Starter pokemonStarter={pokemonsStarter} />
     </div>
   );
 }

@@ -1,16 +1,10 @@
 // import React from "react";
 // import PropTypes from "prop-types";
 
-// function PokemonInfoCards({ pokemon }) {
+// function PokemonInfoCards({ pokemon, onClick}) {
 //   return (
 //     <div>
-//       <div
-//         className="info"
-//         style={{
-//           backgrounColor:
-//         }}
-//         //  onClick={onClick}
-//       >
+//       <div className="info" onClick={onClick}>
 //         <h2>{pokemon.name}</h2>
 //         <img src={pokemon.sprites.front_default} alt={pokemon.name} />
 //         <p>Type: {pokemon.types[0].type.name}</p>

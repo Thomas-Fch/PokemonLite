@@ -1,98 +1,59 @@
-// import React from "react";
-// import PropTypes from "prop-types";
+import React from "react";
+import PropTypes from "prop-types";
+import getColorsByType from "./getColorsByType";
 
-// function PokemonCards({ pokemon }) {
-//   const color = getColorByType(pokemon.types[0].type.name);
+function PokemonCards({ pokemon, onClick }) {
+  return (
+    <div style={{ display: "flex", flexDirection: "row" }}>
+      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
+      <figure
+        className="pokemon-card"
+        onClick={onClick}
+        style={{
+          backgroundColor: getColorsByType(pokemon.type[0].type.name),
+        }}
+      >
+        <div className="pokemon-card-top">
+          <h2>{pokemon.name}</h2>
 
-//   return (
-//     <div style={{ display: "flex", flexDirection: "row" }}>
-//       <div
-//         className="pokemonCard"
-//         style={{
-//           backgroundColor: color,
-//           width: "300px",
-//           height: "400px",
-//           backgroundSize: "150px",
-//           backgroundPosition: "center",
-//           marginRight: "10px",
-//           position: "relative",
-//         }}
-//         // onClick={onClick}
-//       ></div>
-//       ;
-//       <div
-//         className="overlay"
-//         style={{
-//           position: "absolute",
-//           display: "flex",
-//           gap: "10px",
-//           bottom: "0",
-//           left: "0",
-//           "align-items": "flex-start",
-//           width: "100%",
-//           height: "100%",
-//           padding: "20px",
-//           "box-sizing": "border-box",
-//           "border-radius": "20px 20px 0px 0px",
-//           "max-height": "100px",
-//           background: "white", // couleur semi-transparente
-//         }}
-//       >
-//         {pokemon.types.map((type) => (
-//           <div
-//             style={{
-//               borderRadius: "5px",
-//               color: "white",
-//               backgroundColor: color,
-//               padding: "5px 10px",
-//               textAlign: "center",
-//             }}
-//             key={type.slot}
-//           >
-//             {type.type.name}
-//           </div>
-//         ))}
-//       </div>
-//       <div
-//         style={{
-//           color: "white",
-//           fontSize: "20px",
-//           marginTop: "0",
-//         }}
-//       >
-//         <h2>{pokemon.name}</h2>
-//       </div>
-//       <img
-//         style={{
-//           width: "100%",
-//           height: "100%",
-//           objectFit: "contain",
-//           marginTop: "-50px",
-//         }}
-//         src={pokemon.sprites.front_default}
-//         alt={pokemon.name}
-//       />
-//     </div>
-//   );
-// }
+          <img
+            className="pokemon-card-image"
+            src={pokemon.image}
+            alt={pokemon.name}
+          />
+        </div>
+        <div className="pokemon-card-bottom">
+          {pokemon.type?.map((type) => (
+            <div
+              className="pokemon-card-badge"
+              key={type.slot}
+              style={{
+                backgroundColor: getColorsByType(type.type.name),
+              }}
+            >
+              {type.type.name}
+            </div>
+          ))}
+        </div>
+      </figure>
+    </div>
+  );
+}
 
-// PokemonCards.propTypes = {
-//   pokemon: PropTypes.shape({
-//     name: PropTypes.string.isRequired,
-//     sprites: PropTypes.shape({
-//       front_default: PropTypes.string.isRequired,
-//     }).isRequired,
-//     types: PropTypes.arrayOf(
-//       PropTypes.shape({
-//         slot: PropTypes.number.isRequired,
-//         type: PropTypes.shape({
-//           name: PropTypes.string.isRequired,
-//         }).isRequired,
-//       })
-//     ).isRequired,
-//   }).isRequired,
-//   sprites: PropTypes.shape({}).isRequired,
-//   onClick: PropTypes.func.isRequired,
-// };
+PokemonCards.propTypes = {
+  pokemon: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    type: PropTypes.arrayOf(
+      PropTypes.shape({
+        slot: PropTypes.number.isRequired,
+        type: PropTypes.shape({
+          name: PropTypes.string.isRequired,
+        }).isRequired,
+      })
+    ).isRequired,
+  }).isRequired,
+  onClick: PropTypes.func.isRequired,
+};
 
-// export default PokemonCards;
+export default PokemonCards;
