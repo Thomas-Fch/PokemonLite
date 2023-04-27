@@ -1,0 +1,161 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    cursor: default;
+    text-decoration: none;
+    list-style: none;
+  
+    }
+/* -------------------------------------------------------------------------- */
+/*                                   POKEDEX                                  */
+/* -------------------------------------------------------------------------- */
+
+#pokedex{
+    background: #D65C5C ;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    object-fit: cover;
+  }
+  
+  .livre{
+    width: 110%;
+    position: absolute;
+    opacity: 20%;
+    right: 22%;
+    top: 35%;
+    transform: rotate(13deg);
+    position: fixed;  
+  
+  }
+  
+  /* -------------------------------- SEARCH ------------------------------- */
+  .searchPokedex{
+    position: relative;
+    position: fixed;
+    z-index: 100;
+    background-color: #D65C5C;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: -webkit-fill-available;
+    left: -15%;
+    top:0;
+  
+  }
+  .searchBarPok{
+    background-color: white;
+    opacity: 20%;
+    border-radius: 10px;
+    border-color: initial;
+    width: 45%;
+    padding: 5px;
+    margin: 25px 0px 20px 0px;
+      
+  }
+  
+  .serachIcon{
+   width: 8%;
+   padding: 10px;
+   /* opacity: 80%; */
+  }
+  
+  /* -------------------------------- FILTREBAR ------------------------------- */
+  .filtrePokedex{
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    border-bottom: 0.2rem solid white;
+    width: 60%;
+    
+  }
+  
+  /* ------------------------------ VERTICAL-LINE ----------------------------- */
+  .vertical-line{
+    position: fixed;
+    height: 99%;
+    border-left: 0.2rem solid white;
+    left: 21%;  
+  }
+  
+  /* --------------------------------- POKEDEX -------------------------------- */
+  #pokedex{
+    display: flex;
+    flex-direction: column;
+    margin-top: 90px;
+  }
+
+  .cardPokedex{
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    margin-right: 0;
+  }
+     
+  #pokedexCard{
+    display: flex;
+    align-items: center; 
+    flex-direction: row;
+    justify-content: center;
+    padding-right: 8%;    
+  }
+    
+  div .cardPokedex{ 
+    z-index: 20;  
+    margin: 15px; 
+  }
+  
+  img.imgPokedex{
+    border-radius: 100%;
+    width: 70px;
+    border: 2px solid white;
+    padding: 10px;   
+  }
+
+  img.imgPokedex:hover{
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .ulPokedex{
+    list-style-type: none;
+    display: flex;
+    text-align: center;
+    padding-inline-start: none;
+    z-index: 20; 
+    margin-left: 0;     
+  }
+  
+  .liPokedex{
+    width: 90px;
+    border-radius: 15px;
+    padding: 5px;
+    color: white;      
+  }
+
+ 
+  .liPokedexType{
+    color: white;
+    font-size: large;
+    width: 95px;
+    border-radius: 10px;
+    display: flex;
+    padding-left: 10px;
+    justify-content: space-evenly;
+    align-items: center; 
+  }
+  
+  .liPokedexTypeImage{
+    width: 30%;
+  }
+  
+  
+  /* -------------------------------------------------------------------------- */
+  /*                                                                            */
+  /* -------------------------------------------------------------------------- */
+  
