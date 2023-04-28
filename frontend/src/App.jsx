@@ -10,7 +10,7 @@ import "./App.scss";
 
 function App() {
   const [pokemonsArray, setPokemonsArray] = useState([]);
-  const [mode, setMode] = useState("guessPokemon");
+  const [mode, setMode] = useState("path");
   const [pokemonTeam, setPokemonTeam] = useState([]);
 
   useEffect(() => {

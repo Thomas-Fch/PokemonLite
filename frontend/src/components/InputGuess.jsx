@@ -42,7 +42,7 @@ function InputGuess({ setTurn, setIsGuessed, pokemonToGuess }) {
 InputGuess.propTypes = {
   setTurn: PropTypes.func.isRequired,
   setIsGuessed: PropTypes.func.isRequired,
-  pokemonToGuess: PropTypes.shap({
+  pokemonToGuess: PropTypes.shape({
     name: PropTypes.string,
   }).isRequired,
 };
