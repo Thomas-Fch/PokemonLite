@@ -4,14 +4,17 @@ import Arena from "./Classes/Arena";
 import Path from "./components/Path";
 import Battle from "./components/Battle";
 import GameOver from "./components/GameOver";
+import Navbar from "./components/Navbar";
+import GetStarter from "./components/GetStarter";
 
-import "./App.css";
+import "./App.scss";
 
 function App() {
   const [pokemonsArray, setPokemonsArray] = useState([]);
   const [pokemonsStarter, setPokemonsStarter] = useState([]);
   const [arena, setArena] = useState({});
   const [mode, setMode] = useState("start");
+  const [pokemonTeam, setPokemonTeam] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,6 +44,10 @@ function App() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    console.info(pokemonsArray);
+  }, [pokemonsArray]);
+
   const handleClick = () => {
     setMode("battle");
   };
@@ -62,6 +69,7 @@ function App() {
     <div className="App">
       {console.info(pokemonsArray)}
       {console.info(pokemonsStarter)}
+      {console.info(pokemonTeam)}
 
       {mode === "start" && <Path handleClick={handleClick} />}
       {mode === "battle" && (
@@ -73,6 +81,9 @@ function App() {
         />
       )}
       {mode === "gameOver" && <GameOver setMode={setMode} />}
+
+      <GetStarter pokemon={pokemonsStarter} setPokemonTeam={setPokemonTeam} />
+      <Navbar />
     </div>
   );
 }
