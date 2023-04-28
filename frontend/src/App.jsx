@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Pokemon from "./Classes/Pokemon";
-import Arena from "./Classes/Arena";
 import Path from "./components/Path";
-import Battle from "./components/Battle";
-import GameOver from "./components/GameOver";
-import Navbar from "./components/Navbar";
-import GetStarter from "./components/GetStarter";
+import PokemonGuesser from "./components/PokemonGuesser";
+
+// import Battle from "./components/Battle";
+// import GameOver from "./components/GameOver";
+// import Navbar from "./components/Navbar";
+// import GetStarter from "./components/GetStarter";
 
 import "./App.scss";
 
 function App() {
   const [pokemonsArray, setPokemonsArray] = useState([]);
-  const [pokemonsStarter, setPokemonsStarter] = useState([]);
-  const [arena, setArena] = useState({});
-  const [mode, setMode] = useState("start");
-  const [pokemonTeam, setPokemonTeam] = useState([]);
+
+  // const [arena, setArena] = useState({});
+  const [mode, setMode] = useState("guessPokemon");
+  // const [pokemonTeam, setPokemonTeam] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,7 +23,7 @@ function App() {
       const starter = [];
       const idStarter = [1, 4, 7];
 
-      for (let i = 1; i <= 31; i += 1) {
+      for (let i = 1; i <= 200; i += 1) {
         tabPokemon.push(`https://pokeapi.co/api/v2/pokemon/${i}`);
       }
       const responses = await Promise.all(tabPokemon.map((url) => fetch(url)));
@@ -39,40 +40,41 @@ function App() {
       });
 
       setPokemonsArray(pokemons);
-      setPokemonsStarter(starter);
     };
     fetchData();
   }, []);
 
-  useEffect(() => {
-    console.info(pokemonsArray);
-  }, [pokemonsArray]);
-
   const handleClick = () => {
-    setMode("battle");
+    setMode("guessPokemon");
   };
   // const arena = new Arena(pokemonsArray[0], pokemonsArray[18]);
 
-  useEffect(() => {
-    setArena(new Arena(pokemonsArray[0], pokemonsArray[24]));
-  }, [pokemonsArray]);
+  // useEffect(() => {
+  //   setArena(new Arena(pokemonsArray[0], pokemonsArray[24]));
+  // }, [pokemonsArray]);
 
-  useEffect(() => {
-    console.info("FROM APP", arena);
-  }, [arena]);
+  // const handleArenaChange = (newArena) => {
+  //   setArena(newArena);
+  // };
 
-  const handleArenaChange = (newArena) => {
-    setArena(newArena);
+  const getRandomIndex = (maxIndex) => {
+    return 1 + Math.floor(Math.random() * maxIndex);
   };
 
-  return (
-    <div className="App">
-      {console.info(pokemonsArray)}
-      {console.info(pokemonsStarter)}
-      {console.info(pokemonTeam)}
+  const index = getRandomIndex(200);
 
-      {mode === "start" && <Path handleClick={handleClick} />}
-      {mode === "battle" && (
+  return (
+    <div>
+      {console.info(pokemonsArray[0])}
+      {mode === "path" && <Path handleClick={handleClick} />}
+
+      {mode === "guessPokemon" && (
+        <PokemonGuesser
+          pokemonToGuess={pokemonsArray[index]}
+          setMode={setMode}
+        />
+      )}
+      {/* {mode === "battle" && (
         <Battle
           handleArenaChange={handleArenaChange}
           arena={arena}
@@ -80,10 +82,10 @@ function App() {
           setMode={setMode}
         />
       )}
-      {mode === "gameOver" && <GameOver setMode={setMode} />}
+      {mode === "gameOver" && <GameOver setMode={setMode} />} */}
 
-      <GetStarter pokemon={pokemonsStarter} setPokemonTeam={setPokemonTeam} />
-      <Navbar />
+      {/* <GetStarter pokemon={pokemonsStarter} setPokemonTeam={setPokemonTeam} /> */}
+      {/* <Navbar /> */}
     </div>
   );
 }
