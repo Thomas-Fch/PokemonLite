@@ -26,7 +26,7 @@ body {
 /*                                   POKEDEX                                  */
 /* -------------------------------------------------------------------------- */
 .searchBarPok {
-  background-color: white;
+  background-color: $font-light;
   opacity: 70%;
   border-radius: 10px;
   border-color: initial;
@@ -39,9 +39,9 @@ body {
 /* -------------------------------- FILTERBAR ------------------------------- */
 .filtrePokedex {
   display: flex;
-  color: white;
+  color: $font-light;
   justify-content: space-between;
-  border-bottom: 0.2rem solid white;
+  border-bottom: 0.2rem solid $font-light;
   width: 60%;
   margin-left: 80px;
 }
@@ -50,7 +50,7 @@ body {
 .vertical-line {
   position: absolute;
   height: 95%;
-  border-left: 0.2rem solid white;
+  border-left: 0.2rem solid $font-light;
   left: 125px;
 }
 
@@ -67,7 +67,7 @@ body {
 
 .cardPokedex {
   font-family: "Courier New", Courier, monospace;
-  color: white;
+  color: $font-light;
   margin-right: 0;
 }
 
@@ -86,7 +86,7 @@ div .cardPokedex {
 img.imgPokedex {
   border-radius: 100%;
   width: 70px;
-  border: 2px solid white;
+  border: 2px solid $font-light;
   padding: 10px;
 }
 img.imgPokedex:hover {
@@ -109,7 +109,7 @@ img.imgPokedex:hover {
   width: 60px;
   border-radius: 15px;
   padding: 5px;
-  color: white;
+  color: $font-light;
 }
 #name_type {
   display: flex;
@@ -117,7 +117,7 @@ img.imgPokedex:hover {
 }
 
 .liPokedexType {
-  color: white;
+  color: $font-light;
   font-size: large;
   width: 60px;
   border-radius: 10px;
@@ -229,7 +229,7 @@ nav {
   min-height: 100vh;
   overflow: hidden;
   // padding-top: 40px;
-  color: white;
+  color: $font-light;
   position: relative;
   z-index: 3;
 
@@ -253,7 +253,7 @@ nav {
   h1 {
     text-align: center;
     text-transform: uppercase;
-    color: white;
+    color: $font-light;
     margin-top: 100px;
     z-index: 4;
 
@@ -273,7 +273,7 @@ nav {
         // padding: 10px;
         background-color: #C8EAF7;
         outline: none;
-        border: 1px solid white;
+        border: 1px solid $font-light;
         height: 30px;
       }
 
@@ -286,11 +286,11 @@ nav {
         width: 50px;
         background-color: $color-accent;
         text-transform: uppercase;
-        color: white;
+        color: $font-light;
         background-color: none;
         border: 0;
         cursor: pointer;
-        border: 1px solid white;
+        border: 1px solid $font-light;
         border-radius: 0 10px 10px 0;
       }
     }
@@ -316,10 +316,10 @@ nav {
         // padding: 10px;
         text-transform: uppercase;
         border-radius: 10px;
-        border: 1px solid white;
+        border: 1px solid $font-light;
         cursor: pointer;
         margin-top: 20px;
-        color:white;
+        color:$font-light;
         background-color: $color-accent;
         transition: background-color 250ms ease-out;
 
@@ -339,11 +339,13 @@ nav {
   }
 }
 
-/* ------------------------------ CLOSE BUTTON ------------------------------ */
+/* -------------------------------------------------------------------------- */
+/*                                CLOSE BUTTON                                */
+/* -------------------------------------------------------------------------- */
 .close-container {
   width:250px;
   height: 170px;
-  background-color: white;
+  background-color: $font-light;
   position: absolute;
   top: 0;
   right: 0;
@@ -377,117 +379,6 @@ nav {
       height: 26px;
     }
   }
-}
-
-
-
-
-/* -------------------------------------------------------------------------- */
-/*                                   BATTLE                                   */
-/* -------------------------------------------------------------------------- */
-.battle-field {
-  background-color: #338FBF;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-.pokemon-info {
-  width: 100%;
-  display: flex;
-  gap: 20px;
-  justify-content: space-between;
-  padding: 10px;
-  padding-top: 40px;
-}
-.pokemon {
-  position: relative;
-}
-.profile {
-  position: absolute;
-  display: block;
-  width: 200px;
-}
-
-.starter {
-  display: flex;
-  justify-content: flex-start;
-}
-.starter-img {
-  transform: scaleX(-1);
-  top: 362px;
-}
-
-.enemy {
-  display: flex;
-  justify-content: flex-end;
-}
-.enemy-img {
-  top: 268px;
-}
-/* -------------------------------------------------------------------------- */
-/*                             POKEMON BATTLE INFO                            */
-/* -------------------------------------------------------------------------- */
-.status {
-  background-color: white;
-  font-size: 12px;
-  width: 150px;
-  /* height: 50px; */
-  border-radius: 10px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.status .infos {
-  display: flex;
-  justify-content: space-between;
-}
-
-.status .infos .name {
-  text-transform: uppercase;
-}
-
-.status .progress-bar {
-  height: 15px;
-  background-color: rgba(128, 128, 128, 0.253);
-  margin-top: 10px;
-  border-radius: 10px;
-  overflow: hidden;
-  
-}
-
-.status .progress-bar-value {
-  height: 100%;
-  background-color: #1EE13D;
-
-  transition: 250ms;
-}
-
-
-
-
-/* -------------------------------------------------------------------------- */
-/*                                  GAME OVER                                 */
-/* -------------------------------------------------------------------------- */
-
-.game-over {
-  background-color: #338FBF;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.game-over .cta-path {
-  margin-top: 20px;
-  outline: none;
-  background: none;
-  background-color: rgba(252, 252, 252, 0.525);
-  border: 1px solid white;
-  padding: 20px;
-  cursor: pointer;
-  font-size: 24px;
-  border-radius: 10px;
 }
 
 

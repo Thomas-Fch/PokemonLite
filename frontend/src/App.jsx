@@ -3,19 +3,15 @@ import Pokemon from "./Classes/Pokemon";
 import Path from "./components/Path";
 import PokemonGuesser from "./components/PokemonGuesser";
 
-// import Battle from "./components/Battle";
-// import GameOver from "./components/GameOver";
-// import Navbar from "./components/Navbar";
-// import GetStarter from "./components/GetStarter";
+import Navbar from "./components/Navbar";
+import GetStarter from "./components/GetStarter";
 
 import "./App.scss";
 
 function App() {
   const [pokemonsArray, setPokemonsArray] = useState([]);
-
-  // const [arena, setArena] = useState({});
   const [mode, setMode] = useState("guessPokemon");
-  // const [pokemonTeam, setPokemonTeam] = useState([]);
+  const [pokemonTeam, setPokemonTeam] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,15 +43,6 @@ function App() {
   const handleClick = () => {
     setMode("guessPokemon");
   };
-  // const arena = new Arena(pokemonsArray[0], pokemonsArray[18]);
-
-  // useEffect(() => {
-  //   setArena(new Arena(pokemonsArray[0], pokemonsArray[24]));
-  // }, [pokemonsArray]);
-
-  // const handleArenaChange = (newArena) => {
-  //   setArena(newArena);
-  // };
 
   const getRandomIndex = (maxIndex) => {
     return 1 + Math.floor(Math.random() * maxIndex);
@@ -74,18 +61,9 @@ function App() {
           setMode={setMode}
         />
       )}
-      {/* {mode === "battle" && (
-        <Battle
-          handleArenaChange={handleArenaChange}
-          arena={arena}
-          mode={mode}
-          setMode={setMode}
-        />
-      )}
-      {mode === "gameOver" && <GameOver setMode={setMode} />} */}
 
-      {/* <GetStarter pokemon={pokemonsStarter} setPokemonTeam={setPokemonTeam} /> */}
-      {/* <Navbar /> */}
+      <GetStarter pokemon={pokemonTeam} setPokemonTeam={setPokemonTeam} />
+      <Navbar />
     </div>
   );
 }
