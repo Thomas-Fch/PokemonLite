@@ -1,5 +1,11 @@
 class Pokemon {
-  constructor(pokemonObject, level = 1, xp = 0) {
+  constructor(
+    pokemonObject,
+    level = 1,
+    xp = 0,
+    encounter = false,
+    favorite = false
+  ) {
     this.name = pokemonObject.name;
     this.stats = pokemonObject.stats;
     this.life = pokemonObject.stats[0].base_stat;
@@ -9,6 +15,8 @@ class Pokemon {
     this.id = pokemonObject.id;
     this.type = pokemonObject.types;
     this.image = pokemonObject.sprites.other["official-artwork"].front_default;
+    this.encounter = encounter;
+    this.favorite = favorite;
     this.level = level;
     this.xp = xp;
     this.nextLevelXp = 100 + 50 * (this.level - 1);
