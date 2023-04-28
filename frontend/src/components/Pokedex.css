@@ -59,7 +59,7 @@
   }
   
   .serachIcon{
-   width: 8%;
+   width: 6%;
    padding: 10px;
    /* opacity: 80%; */
   }
@@ -88,6 +88,7 @@
     display: flex;
     flex-direction: column;
     margin-top: 90px;
+    min-height: 100vh;
   }
 
   .cardPokedex{
