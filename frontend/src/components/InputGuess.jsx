@@ -32,7 +32,7 @@ function InputGuess({ setTurn, setIsGuessed, pokemonToGuess }) {
         value={answer}
         onChange={handleChange}
       />
-      <button type="submit" className="btn">
+      <button type="submit" className="btn btn-submit">
         Go
       </button>
     </form>

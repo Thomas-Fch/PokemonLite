@@ -224,6 +224,17 @@ nav {
 /* -------------------------------------------------------------------------- */
 /*                               POKEMON GUESSER                              */
 /* -------------------------------------------------------------------------- */
+
+.btn {
+  background-color: none;
+    border: 0;
+    cursor: pointer;
+    border: 1px solid $font-light;
+    width: 100%;
+      background-color: $color-accent;
+      text-transform: uppercase;
+      
+}
 .guesser-container {
   background-color: #49BBE5;
   min-height: 100vh;
@@ -268,6 +279,8 @@ nav {
     justify-content: center;
     z-index: 4;
 
+    
+
     form {
       .answer-input, .btn {
         // padding: 10px;
@@ -282,7 +295,7 @@ nav {
         padding-left: 10px;
       }
 
-      .btn {
+      .btn-submit {
         width: 50px;
         background-color: $color-accent;
         text-transform: uppercase;
@@ -308,31 +321,39 @@ nav {
     }
 
     .goodGuessContainer {
-      .cta-path {
+      .cta-next {
         width: 60%;
         height: 25px;
         display: block;
         margin: 0 auto;
-        // padding: 10px;
-        text-transform: uppercase;
         border-radius: 10px;
         border: 1px solid $font-light;
         cursor: pointer;
         margin-top: 20px;
         color:$font-light;
-        background-color: $color-accent;
         transition: background-color 250ms ease-out;
 
         &:hover {
           background-color: rgba($color: $color-accent, $alpha: .7);
         }
       }
-     
     }
 
     .wrongGuessContainer {
-      animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
-      color: #bc0202;
+      h3 {
+        animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+        color: #bc0202;
+      }
+    }
+
+    .cta-skip {
+      width: 60%;
+      height: 25px;
+      display: block;
+      margin: 20px auto;
+      border-radius: 10px;
+      color:$font-light;
+
     }
 
    

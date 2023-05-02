@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import Pokemon from "./Classes/Pokemon";
 import Path from "./components/Path";
 import PokemonGuesser from "./components/PokemonGuesser";
-
-import Navbar from "./components/Navbar";
 import GetStarter from "./components/GetStarter";
 
 import "./App.scss";
@@ -44,26 +42,20 @@ function App() {
     setMode("guessPokemon");
   };
 
-  const getRandomIndex = (maxIndex) => {
-    return 1 + Math.floor(Math.random() * maxIndex);
-  };
-
-  const index = getRandomIndex(200);
-
   return (
     <div>
-      {console.info(pokemonsArray[0])}
+      {/* {console.info(pokemonsArray[0])} */}
       {mode === "path" && <Path handleClick={handleClick} />}
 
       {mode === "guessPokemon" && (
         <PokemonGuesser
-          pokemonToGuess={pokemonsArray[index]}
+          // pokemonToGuess={pokemonsArray[index]}
           setMode={setMode}
+          pokemonsArray={pokemonsArray}
         />
       )}
 
       <GetStarter pokemon={pokemonTeam} setPokemonTeam={setPokemonTeam} />
-      <Navbar />
     </div>
   );
 }
