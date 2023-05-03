@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Pokemon from "./Classes/PokemonStats";
-import Navbar from "./components/Navbar";
-import GetStarter from "./components/GetStarter";
+// import Navbar from "./components/Navbar";
+import Login from "./components/Login";
 
 import "./App.scss";
 
@@ -40,12 +40,8 @@ function App() {
 
   return (
     <div className="App">
-      <h2>TEST</h2>
-      {console.info(pokemonsArray)}
-      {console.info(pokemonsStarter)}
-      {console.info(pokemonTeam)}
-      <GetStarter pokemon={pokemonsStarter} setPokemonTeam={setPokemonTeam} />
-      <Navbar />
+      <Login />
+      {/* <Navbar /> */}
     </div>
   );
 }
