@@ -57,19 +57,6 @@ function PokemonGuesser({ setMode, pokemonsArray, setPokemonWon, setScore }) {
             className={isGuessed ? "poke-shadow" : "poke-color"}
           />
 
-          {/* {isGuessed && (
-            <div className="goodGuessContainer">
-              <h3>That's a good guess!!</h3>
-              <button
-                type="button"
-                className="btn cta-path"
-                onClick={() => setMode("path")}
-              >
-                Go back
-              </button>
-            </div>
-          )} */}
-
           {isGuessed && (
             <div className="goodGuessContainer">
               <h3>Amazing!!</h3>

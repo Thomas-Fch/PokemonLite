@@ -2,10 +2,9 @@
   margin: 0;
   padding: 0;
   border: 0;
-  // cursor: default;
+  cursor: default;
   text-decoration: none;
   list-style: none;
-  // box-sizing: border-box;
 
 }
 
@@ -203,7 +202,6 @@ nav {
   border-radius: 50%;
   outline: none;
   cursor: pointer;
-  // transition: all 250ms ease-in-out;
   animation: heartbeat 1500ms ease-in-out infinite both;
   user-select: none;
 }
@@ -239,7 +237,6 @@ nav {
   background-color: #49BBE5;
   min-height: 100vh;
   overflow: hidden;
-  // padding-top: 40px;
   color: $font-light;
   position: relative;
   z-index: 3;

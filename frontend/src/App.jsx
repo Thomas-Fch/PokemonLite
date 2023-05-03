@@ -52,7 +52,6 @@ function App() {
 
       {mode === "guessPokemon" && (
         <PokemonGuesser
-          // pokemonToGuess={pokemonsArray[index]}
           setMode={setMode}
           pokemonsArray={pokemonsArray}
           setPokemonWon={setPokemonWon}
