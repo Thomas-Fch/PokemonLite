@@ -1,0 +1,164 @@
+:root {
+    --bg-bag:#F1BE39;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                BAG COMPONENT                               */
+/* -------------------------------------------------------------------------- */
+.bag {
+    background-color: var(--bg-bag);
+    min-height: 100vh;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                    PATH                                    */
+/* -------------------------------------------------------------------------- */
+.path {
+    background-color: #3ADF93;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.path .btn-fight {
+    background: transparent;
+    border: 0;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+
+}
+
+.path .btn-fight:active {
+    transform: scale(.9);
+}
+
+.path .icone-fight {
+    border-radius: 50%;
+    box-shadow: 0 8px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   BATTLE                                   */
+/* -------------------------------------------------------------------------- */
+.battle-field {
+    background-color: #338FBF;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+.pokemon-info {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 10px;
+    padding-top: 40px;
+}
+.pokemon {
+    position: relative;
+}
+.profile {
+    position: absolute;
+    display: block;
+    width: 200px;
+}
+
+.starter {
+    display: flex;
+    justify-content: flex-start;
+}
+.starter-img {
+    transform: scaleX(-1);
+    top: 362px;
+}
+
+.enemy {
+    display: flex;
+    justify-content: flex-end;
+}
+.enemy-img {
+    top: 268px;
+}
+/* -------------------------------------------------------------------------- */
+/*                             POKEMON BATTLE INFO                            */
+/* -------------------------------------------------------------------------- */
+.status {
+    background-color: white;
+    font-size: 12px;
+    width: 150px;
+    /* height: 50px; */
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.status .infos {
+    display: flex;
+    justify-content: space-between;
+}
+
+.status .infos .name {
+    text-transform: uppercase;
+}
+
+.status .progress-bar {
+    height: 15px;
+    background-color: rgba(128, 128, 128, 0.253);
+    margin-top: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    
+}
+
+.status .progress-bar-value {
+    height: 100%;
+    background-color: #1EE13D;
+
+    transition: 250ms;
+}
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                  GAME OVER                                 */
+/* -------------------------------------------------------------------------- */
+
+.game-over {
+    background-color: #338FBF;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-over .cta-path {
+    margin-top: 20px;
+    outline: none;
+    background: none;
+    background-color: rgba(252, 252, 252, 0.525);
+    border: 1px solid white;
+    padding: 20px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 10px;
+}
+
+
+
+
