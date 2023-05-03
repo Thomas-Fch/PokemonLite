@@ -1,10 +1,14 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import PokedexCard from "./PokedexCard";
-import SearchFilter from "./SearchFilter";
+import NumberFilter from "./NumberFilter";
 
 function Pokedex({ pokemonsArray }) {
-  const [filter, setFilter] = useState("");
+  const [filterBar, setFilterBar] = useState("");
+
+  const handelClickFilter = (e) => {
+    setFilterBar(e.target.value);
+  };
 
   return (
     <div id="pokedex">
@@ -12,21 +16,20 @@ function Pokedex({ pokemonsArray }) {
         <input
           className="searchBarPok"
           type="text"
-          onChange={(e) => {
-            setFilter(e.target.value);
-          }}
+          onChange={handelClickFilter}
           placeholder="Pokemon"
         />
         <img className="serachIcon" src="./src/assets/icon/loupe.png" alt="" />
-        <SearchFilter />
+        <NumberFilter />
       </div>
+
       <div className="vertical-line">
         <span className="dot" />
         <img className="livre" src="./src/assets/icon/livre.png" alt="" />
       </div>
-      <div className="cardPokedex">
+      <div>
         {pokemonsArray
-          .filter((name) => name.name.startsWith(filter))
+          .filter((pokemon) => pokemon.name.startsWith(filterBar))
           .map((pokemon) => {
             return <PokedexCard key={pokemon.name} pokemon={pokemon} />;
           })}

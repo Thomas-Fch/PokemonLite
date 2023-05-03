@@ -1,4 +1,4 @@
-function SearchFilter() {
+function NumberFilter() {
   return (
     <ul className="filtrePokedex">
       <li>NUMBER</li>
@@ -8,4 +8,4 @@ function SearchFilter() {
   );
 }
 
-export default SearchFilter;
+export default NumberFilter;

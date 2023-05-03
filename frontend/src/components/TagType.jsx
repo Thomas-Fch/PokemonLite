@@ -5,6 +5,7 @@ import iconType from "./iconType";
 
 function TagType({ type }) {
   const [typeImage, setTypeImage] = useState("");
+
   const loadImage = () => {
     import(iconType[type]).then((image) => {
       setTypeImage(image.default);

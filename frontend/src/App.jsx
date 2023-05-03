@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Pokemon from "./Classes/PokemonStats";
-import "./App.css";
-import "./components/Pokedex.css";
+import "./App.scss";
+import "./components/Pokedex.scss";
 import Pokedex from "./components/Pokedex";
 
 function App() {
