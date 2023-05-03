@@ -18,7 +18,7 @@ function Starter({ pokemonsArray }) {
         <div>
           <h1 className="title">
             CHOOSE YOUR <br />
-            <span>STARTER</span>
+            <span>FAVOURITE</span>
           </h1>
           <div style={{ display: "flex", flexDirection: "row" }}>
             {pokemonsArray.map((pokemon) => (
