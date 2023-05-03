@@ -280,7 +280,7 @@ nav {
     margin-bottom: 2rem;
   }
   form {
-    width: 16rem;
+    width: 80vw;
     height: 50vh;
     border-radius: 15px;
     backdrop-filter: blur(10px);
@@ -296,14 +296,13 @@ nav {
       font-size: 14px;
     }
     input{
-      margin: 0.25rem;
+      margin: 2rem 0 0.5rem 0;
       width: 90%;
       background-color:rgba(255, 255, 255, 0);
       border-bottom: 2px solid #414141;
     }
     #login{
       padding-top: 15rem;
-      margin-top: 1rem;
       padding: 0.5rem;
       font-size: 16px;
       border: 0;
@@ -311,6 +310,16 @@ nav {
       font-weight: 600;
       background: #F18557;
       border-radius: 40px;
+    }
+
+  }
+  .passwordInput{
+    position: relative;
+    width: 90%;
+    img{
+      position: absolute;
+      width: 15px;
+      bottom: 10%;
     }
   }
 }

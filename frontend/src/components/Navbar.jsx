@@ -31,10 +31,6 @@ function Navbar() {
               <img src="./src/assets/icon/pokeball.png" alt="pokeball" />
               <figcaption>Team</figcaption>
             </figure>
-            {/* <figure>
-          <img src="./src/assets/icon/parameter.png" alt="gear" />
-          <figcaption>Parameter</figcaption>
-        </figure> */}
             <figure>
               <img src="./src/assets/icon/carte.png" alt="map" />
               <figcaption>Map</figcaption>
@@ -77,10 +73,6 @@ function Navbar() {
               <img src="./src/assets/icon/pokeball.png" alt="pokeball" />
               <figcaption>Team</figcaption>
             </figure>
-            {/* <figure>
-          <img src="./src/assets/icon/parameter.png" alt="gear" />
-          <figcaption>Parameter</figcaption>
-        </figure> */}
             <figure>
               <img src="./src/assets/icon/carte.png" alt="map" />
               <figcaption>Map</figcaption>
