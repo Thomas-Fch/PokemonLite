@@ -1,22 +1,14 @@
-import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import closeBtn from "../assets/icon/croix.png";
 
-function CloseBtn({ setMode }) {
+function CloseBtn() {
   return (
-    <div className="close-container">
-      <button
-        type="button"
-        className="btn-close"
-        onClick={() => setMode("path")}
-      >
+    <Link className="close-container" to="/Path">
+      <button type="button" className="btn-close">
         <img src={closeBtn} alt="" className="close-img" />
       </button>
-    </div>
+    </Link>
   );
 }
-
-CloseBtn.propTypes = {
-  setMode: PropTypes.func.isRequired,
-};
 
 export default CloseBtn;
