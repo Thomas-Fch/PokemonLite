@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import { BrowserRouter as Router } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -24,20 +24,28 @@ function Navbar() {
           </div>
           <div className="figureWrapper">
             <figure>
-              <img src="./src/assets/icon/sac-a-dos.png" alt="backapck" />
-              <figcaption>Bag</figcaption>
+              <Link to="/Path">
+                <img src="./src/assets/icon/sac-a-dos.png" alt="backapck" />
+                <figcaption>Bag</figcaption>
+              </Link>
             </figure>
             <figure>
-              <img src="./src/assets/icon/pokeball.png" alt="pokeball" />
-              <figcaption>Team</figcaption>
+              <Link to="/Path">
+                <img src="./src/assets/icon/pokeball.png" alt="pokeball" />
+                <figcaption>Team</figcaption>
+              </Link>
             </figure>
             <figure>
-              <img src="./src/assets/icon/carte.png" alt="map" />
-              <figcaption>Map</figcaption>
+              <Link to="/Path">
+                <img src="./src/assets/icon/carte.png" alt="map" />
+                <figcaption>Map</figcaption>
+              </Link>
             </figure>
             <figure>
-              <img src="./src/assets/icon/livre_black.png" alt="book" />
-              <figcaption>Pokedex</figcaption>
+              <Link to="/Path/Pokedex">
+                <img src="./src/assets/icon/livre_black.png" alt="book" />
+                <figcaption>Pokedex</figcaption>
+              </Link>
             </figure>
           </div>
           <img
@@ -66,20 +74,28 @@ function Navbar() {
           </div>
           <div className="figureWrapper">
             <figure>
-              <img src="./src/assets/icon/sac-a-dos.png" alt="backapck" />
-              <figcaption>Bag</figcaption>
+              <Link to="/Path">
+                <img src="./src/assets/icon/sac-a-dos.png" alt="backapck" />
+                <figcaption>Bag</figcaption>
+              </Link>
             </figure>
             <figure>
-              <img src="./src/assets/icon/pokeball.png" alt="pokeball" />
-              <figcaption>Team</figcaption>
+              <Link to="/Path">
+                <img src="./src/assets/icon/pokeball.png" alt="pokeball" />
+                <figcaption>Team</figcaption>
+              </Link>
             </figure>
             <figure>
-              <img src="./src/assets/icon/carte.png" alt="map" />
-              <figcaption>Map</figcaption>
+              <Link to="/Path">
+                <img src="./src/assets/icon/carte.png" alt="map" />
+                <figcaption>Map</figcaption>
+              </Link>
             </figure>
             <figure>
-              <img src="./src/assets/icon/livre_black.png" alt="book" />
-              <figcaption>Pokedex</figcaption>
+              <Link to="/Path/Pokedex">
+                <img src="./src/assets/icon/livre_black.png" alt="book" />
+                <figcaption>Pokedex</figcaption>
+              </Link>
             </figure>
           </div>
           <img
@@ -91,11 +107,7 @@ function Navbar() {
       );
     }
   };
-  return (
-    // <Router>
-    <div>{logique()}</div>
-    // </Router>
-  );
+  return <div>{logique()}</div>;
 }
 
 export default Navbar;

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function login() {
   const [usernername, setUsername] = useState("");
@@ -29,9 +30,11 @@ function login() {
             onChange={(event) => setPassword(event.target.value)}
           />
           <img src="./src/assets/icon/oeil.png" alt="eyes" />
+          <span>Forget password ?</span>
         </div>
-        <span>Forget password ?</span>
-        <input id="login" type="submit" value="Login" />
+        <Link to="/Path" className="linkLogin">
+          <input id="login" type="submit" value="Login" />
+        </Link>
         <p>
           Don't have an account ? <span>Sign-up</span>
         </p>
