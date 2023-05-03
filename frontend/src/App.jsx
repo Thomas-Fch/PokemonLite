@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Pokemon from "./Classes/Pokemon";
-import Path from "./components/Path";
-import PokemonGuesser from "./components/PokemonGuesser";
-import GameOver from "./components/GameOver";
-import GetStarter from "./components/GetStarter";
+// import Navbar from "./components/Navbar";
+import Login from "./components/Login";
 
 import "./App.scss";
 
 function App() {
   const [pokemonsArray, setPokemonsArray] = useState([]);
-  const [mode, setMode] = useState("path");
-  const [pokemonWon, setPokemonWon] = useState([]);
-  const [score, setScore] = useState(0);
+  const [pokemonsStarter, setPokemonsStarter] = useState([]);
+  // const [pokemonTeam, setPokemonTeam] = useState([]);
+  // const [mode, setMode] = useState("path");
+  // const [pokemonWon, setPokemonWon] = useState([]);
+  // const [score, setScore] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,35 +36,21 @@ function App() {
       });
 
       setPokemonsArray(pokemons);
+      setPokemonsStarter(starter);
     };
     fetchData();
   }, []);
 
-  const handleClick = () => {
-    setMode("guessPokemon");
-  };
-  console.info(pokemonWon);
+  // const handleClick = () => {
+  //   setMode("guessPokemon");
+  // };
 
   return (
-    <div>
-      {console.info(pokemonsArray[0])}
-      {mode === "path" && <Path handleClick={handleClick} />}
-
-      {mode === "guessPokemon" && (
-        <PokemonGuesser
-          setMode={setMode}
-          pokemonsArray={pokemonsArray}
-          setPokemonWon={setPokemonWon}
-          mode={mode}
-          setScore={setScore}
-        />
-      )}
-
-      {mode === "gameOver" && (
-        <GameOver pokemonWon={pokemonWon} setMode={setMode} score={score} />
-      )}
-
-      <GetStarter />
+    <div className="App">
+      {console.info(pokemonsArray)}
+      {console.info(pokemonsStarter)}
+      <Login />
+      {/* <Navbar /> */}
     </div>
   );
 }

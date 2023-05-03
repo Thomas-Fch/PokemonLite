@@ -2,19 +2,26 @@
   margin: 0;
   padding: 0;
   border: 0;
-  cursor: default;
   text-decoration: none;
   list-style: none;
-
+  outline: none;
 }
 
-$font-dark: #2B2B2B;
-$font-light: #FFFFFF;
-$font-stack: "Inter",sans-serif;
+$font-dark: #323232;
+$font-light: #ffffff;
+$font-stack: "Inter", sans-serif;
 $color-accent: #F18557;
 
 .App {
+  background-color: #d65c5c;
+  height: 100vh;
   text-align: center;
+}
+h1,
+h2,
+h3,
+p {
+  font-family: $font-stack;
 }
 
 body {
@@ -132,37 +139,126 @@ img.imgPokedex:hover {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                              NAVBAR                              */
+/*                                              NAVBAR                        */
 /* -------------------------------------------------------------------------- */
 nav {
   height: 5rem;
-  background-color: red;
+  background-color: rgb(255, 255, 255);
   border-radius: 10px 10px 0px 0px;
   width: 100vw;
   position: fixed;
   bottom: -11%;
   display: flex;
   align-items: flex-end;
-  justify-content: space-evenly;
+  justify-content: center;
   padding-bottom: 5px;
   transition: 350ms;
-
-  img{
+  .figureWrapper {
+    display: flex;
+    width: 100vw;
+    justify-content: space-evenly;
+  }
+  figcaption {
+    font-size: 13px;
+    font-family: $font-stack;
+    font-weight: 700;
+    color: $font-dark;
+  }
+  img {
+    cursor: pointer;
     height: 30px;
   }
-  
-  .arrowWrapper{
-    background-color: #61dafb;
+
+  .arrowWrapper {
+    cursor: pointer;
+    background-color: #ffffff;
     width: 5.5rem;
     height: 1.75rem;
     border-radius: 50px;
     position: absolute;
     display: flex;
     align-items: center;
-    justify-content: center;
-    top:-15%
+    top: -15%;
   }
-
+  .backgroundPokeball {
+    display: none;
+  }
+  .arrowUp {
+    width: 2px;
+    border-radius: 5px;
+    border-right: 12px solid transparent;
+    border-bottom: 20px solid rgba(88, 88, 88, 1);
+    border-left: 12px solid transparent;
+    transition: 350ms;
+  }
+  .arrowLeft {
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 21px solid rgb(250, 250, 250);
+    transition: 350ms;
+  }
+}
+@media screen and (min-width: 1024px) {
+  nav {
+    background-color: #2d313e;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-radius: 0;
+    top: 0%;
+    left: 0%;
+    height: 100vh;
+    width: 14rem;
+    img {
+      margin-left: 1rem;
+      filter: invert(1);
+    }
+    .figureWrapper {
+      display: block;
+      width: 100%;
+      margin-top: 4rem;
+    }
+    figure {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      height: 4rem;
+    }
+    figure:hover {
+      background-color: #ef9a5b;
+    }
+    figcaption {
+      padding-left: 0.75rem;
+      color: $font-light;
+      font-size: 20px;
+    }
+    .arrowWrapper {
+      height: 5.5rem;
+      width: 1.75rem;
+      top: 50%;
+      right: -6%;
+      background-color: #2d313e;
+    }
+    .arrowUp {
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      border-left: 21px solid #efecec;
+    }
+    .backgroundPokeball {
+      display: block;
+      width: 18rem;
+      height: auto;
+      position: absolute;
+      transform: rotate(30deg);
+      left: -60%;
+      bottom: -8%;
+      filter: invert(0);
+      opacity: 30%;
+    }
+  }
+}
   
     .arrowUp{
       width: 2px;
@@ -172,7 +268,7 @@ nav {
       border-left : 12px solid transparent;
       transition: 350ms;
       }
-}
+
 
 
 
@@ -459,3 +555,71 @@ nav {
   }
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                              LOGIN                              */
+/* -------------------------------------------------------------------------- */
+.login {
+  background-image: url("../src/assets/icon/Welcome_backgroud.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  p, span{
+    color:#414141;
+    font-size: 12px;
+    font-family: $font-stack;
+  }
+  span{
+    font-weight: 600;
+  }
+  h1{
+    color: $font-light;
+    margin-bottom: 2rem;
+  }
+  form {
+    width: 80vw;
+    height: 50vh;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    label{
+      color: #414141;
+      font-family: $font-stack;
+      font-size: 14px;
+    }
+    input{
+      margin: 2rem 0 0.5rem 0;
+      width: 90%;
+      background-color:rgba(255, 255, 255, 0);
+      border-bottom: 2px solid #414141;
+    }
+    #login{
+      padding-top: 15rem;
+      padding: 0.5rem;
+      font-size: 16px;
+      border: 0;
+      color:$font-light;
+      font-weight: 600;
+      background: #F18557;
+      border-radius: 40px;
+    }
+
+  }
+  .passwordInput{
+    position: relative;
+    width: 90%;
+    img{
+      position: absolute;
+      width: 15px;
+      bottom: 10%;
+    }
+  }
+}
