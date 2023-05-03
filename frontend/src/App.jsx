@@ -8,7 +8,7 @@ import "./App.scss";
 function App() {
   const [pokemonsArray, setPokemonsArray] = useState([]);
   const [pokemonsStarter, setPokemonsStarter] = useState([]);
-  const [pokemonTeam, setPokemonTeam] = useState([]);
+  // const [pokemonTeam, setPokemonTeam] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,6 +40,8 @@ function App() {
 
   return (
     <div className="App">
+      {console.info(pokemonsArray)}
+      {console.info(pokemonsStarter)}
       <Login />
       {/* <Navbar /> */}
     </div>
