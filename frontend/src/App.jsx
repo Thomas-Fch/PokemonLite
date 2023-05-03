@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Pokemon from "./Classes/PokemonStats";
 import Starter from "./components/Starter";
-// import PokemonCards from "./components/PokemonCards";
+import PokemonCards from "./components/PokemonCards";
 import "./App.css";
+import Pokedex from "./components/Pokedex";
 
 function App() {
   const [pokemonsArray, setPokemonsArray] = useState([]);
-  const [pokemonsStarter, setPokemonsStarter] = useState([]);
 
   console.info(pokemonsArray);
-
+  const [pokemonsStarter, setPokemonsStarter] = useState([]);
+  const [pokemonTeam, setPokemonTeam] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       const tabPokemon = [];
@@ -32,8 +33,8 @@ function App() {
         }
       });
 
-      setPokemonsArray(pokemons);
       setPokemonsStarter(starter);
+      setPokemonsArray(pokemons);
     };
     fetchData();
   }, []);
@@ -45,5 +46,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
