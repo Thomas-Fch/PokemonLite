@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import PokemonCards from "./PokemonCards";
 import Stats from "./Stats";
 
-function Starter({ pokemonStarter }) {
+function Starter({ pokemonsArray }) {
   const [selectedPokemon, setSelectedPokemon] = useState(null);
   const [showPokemonStat, setShowPokemonStat] = useState(false);
 
@@ -21,7 +21,7 @@ function Starter({ pokemonStarter }) {
             <span>STARTER</span>
           </h1>
           <div style={{ display: "flex", flexDirection: "row" }}>
-            {pokemonStarter.map((pokemon) => (
+            {pokemonsArray.map((pokemon) => (
               <div key={pokemon.name} style={{ margin: "10px" }}>
                 <PokemonCards
                   pokemon={pokemon}
@@ -39,7 +39,7 @@ function Starter({ pokemonStarter }) {
 }
 
 Starter.propTypes = {
-  pokemonStarter: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  pokemonsArray: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
 
 export default Starter;

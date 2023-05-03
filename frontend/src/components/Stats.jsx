@@ -21,14 +21,18 @@ function Stats({ pokemon }) {
         }}
       >
         {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */}
-        <div className="arrow" onClick={handleClick} />
+        <div className="arrowUp" onClick={handleClick} />
 
         <h1>
-          {pokemon.name} #{pokemon.id.toString().padStart(3, "0")}
+          {pokemon.name} <br /> #{pokemon.id.toString().padStart(3, "0")}
         </h1>
         <h2>{pokemon.type[0].type.name}</h2>
         <img className="p-strenght" src={pokemon.image} alt={pokemon.name} />
-        {/* </div> */}
+        <img
+          className="poke"
+          src="./src/assets/icon/fondpokeball.png"
+          alt="poke"
+        />
         <div className="pokemonStat-bottom">
           <h2
             className="type"
@@ -36,7 +40,7 @@ function Stats({ pokemon }) {
               backgroundColor: getColorsByType(pokemon.type[0].type.name),
             }}
           >
-            {pokemon.type[0].type.name}{" "}
+            {pokemon.type[0].type.name}
           </h2>
           <div className="jg">
             <p>
