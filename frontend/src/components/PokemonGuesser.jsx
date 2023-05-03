@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import CloseBtn from "./CloseBtn";
 import InputGuess from "./InputGuess";
 
-function PokemonGuesser({ setMode, pokemonsArray }) {
+function PokemonGuesser({ setMode, pokemonsArray, setPokemonWon, setScore }) {
   const [turn, setTurn] = useState(0);
+  const [index, setIndex] = useState(0);
   const [isGuessed, setIsGuessed] = useState();
   const [pokemonToGuess, setPokemonToGuess] = useState({});
   const [round, setRound] = useState(1);
@@ -15,14 +16,24 @@ function PokemonGuesser({ setMode, pokemonsArray }) {
 
   const handleClickNext = () => {
     setRound((prev) => prev + 1);
+    setPokemonWon((prev) => [...prev, pokemonsArray[index]]);
     setIsGuessed();
+    setTurn(0);
+    setScore((prev) => prev + 1);
+  };
+
+  const handleClickSkip = () => {
+    setRound((prev) => prev + 1);
+    setIsGuessed();
+    setTurn(0);
   };
 
   useEffect(() => {
-    const index = getRandomIndex(pokemonsArray.length);
-    setPokemonToGuess(pokemonsArray[index]);
+    const indexPokemon = getRandomIndex(pokemonsArray.length);
+    setPokemonToGuess(pokemonsArray[indexPokemon]);
+    setIndex(indexPokemon);
     if (round > 10) {
-      setMode("path");
+      setMode("gameOver");
     }
   }, [round]);
 
@@ -33,7 +44,7 @@ function PokemonGuesser({ setMode, pokemonsArray }) {
       <h1>Who is that pokemon ?</h1>
       {pokemonToGuess && (
         <div className="guesser-inner-container">
-          {/* <p> {pokemonToGuess.name} </p> */}
+          <p> {pokemonToGuess.name} </p>
           <InputGuess
             setTurn={setTurn}
             setIsGuessed={setIsGuessed}
@@ -89,7 +100,7 @@ function PokemonGuesser({ setMode, pokemonsArray }) {
             <button
               type="button"
               className="btn cta-skip"
-              onClick={handleClickNext}
+              onClick={handleClickSkip}
             >
               Skip
             </button>
@@ -101,12 +112,10 @@ function PokemonGuesser({ setMode, pokemonsArray }) {
 }
 
 PokemonGuesser.propTypes = {
-  // pokemonToGuess: PropTypes.shape({
-  //   image: PropTypes.string,
-  //   name: PropTypes.string,
-  // }).isRequired,
   pokemonsArray: PropTypes.shape([]).isRequired,
   setMode: PropTypes.func.isRequired,
+  setPokemonWon: PropTypes.func.isRequired,
+  setScore: PropTypes.func.isRequired,
 };
 
 export default PokemonGuesser;

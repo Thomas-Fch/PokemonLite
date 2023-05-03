@@ -5,7 +5,7 @@
   // cursor: default;
   text-decoration: none;
   list-style: none;
-  box-sizing: border-box;
+  // box-sizing: border-box;
 
 }
 
@@ -204,7 +204,7 @@ nav {
   outline: none;
   cursor: pointer;
   // transition: all 250ms ease-in-out;
-  animation: heartbeat 1s ease-in-out infinite both;
+  animation: heartbeat 1500ms ease-in-out infinite both;
   user-select: none;
 }
 
@@ -317,7 +317,8 @@ nav {
     .poke-shadow {
       width: 100%;
       margin-top: 40px;
-      filter: brightness(100%)
+      filter: brightness(100%);
+      transition: 350ms;
     }
 
     .goodGuessContainer {
