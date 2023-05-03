@@ -10,6 +10,7 @@
 $font-dark: #323232;
 $font-light: #ffffff;
 $font-stack: "Inter", sans-serif;
+$color-accent: #F18557;
 
 .App {
   background-color: #d65c5c;
@@ -23,11 +24,15 @@ p {
   font-family: $font-stack;
 }
 
+body {
+  font-family: $font-stack;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                                   POKEDEX                                  */
 /* -------------------------------------------------------------------------- */
 .searchBarPok {
-  background-color: white;
+  background-color: $font-light;
   opacity: 70%;
   border-radius: 10px;
   border-color: initial;
@@ -40,9 +45,9 @@ p {
 /* -------------------------------- FILTERBAR ------------------------------- */
 .filtrePokedex {
   display: flex;
-  color: white;
+  color: $font-light;
   justify-content: space-between;
-  border-bottom: 0.2rem solid white;
+  border-bottom: 0.2rem solid $font-light;
   width: 60%;
   margin-left: 80px;
 }
@@ -51,7 +56,7 @@ p {
 .vertical-line {
   position: absolute;
   height: 95%;
-  border-left: 0.2rem solid white;
+  border-left: 0.2rem solid $font-light;
   left: 125px;
 }
 
@@ -68,7 +73,7 @@ p {
 
 .cardPokedex {
   font-family: "Courier New", Courier, monospace;
-  color: white;
+  color: $font-light;
   margin-right: 0;
 }
 
@@ -87,7 +92,7 @@ div .cardPokedex {
 img.imgPokedex {
   border-radius: 100%;
   width: 70px;
-  border: 2px solid white;
+  border: 2px solid $font-light;
   padding: 10px;
 }
 img.imgPokedex:hover {
@@ -110,7 +115,7 @@ img.imgPokedex:hover {
   width: 60px;
   border-radius: 15px;
   padding: 5px;
-  color: white;
+  color: $font-light;
 }
 #name_type {
   display: flex;
@@ -118,7 +123,7 @@ img.imgPokedex:hover {
 }
 
 .liPokedexType {
-  color: white;
+  color: $font-light;
   font-size: large;
   width: 60px;
   border-radius: 10px;
@@ -252,6 +257,301 @@ nav {
       filter: invert(0);
       opacity: 30%;
     }
+  }
+}
+  
+    .arrowUp{
+      width: 2px;
+      border-radius: 5px;
+      border-right : 12px solid transparent;
+      border-bottom : 20px solid rgba(88, 88, 88, 1);
+      border-left : 12px solid transparent;
+      transition: 350ms;
+      }
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                BAG COMPONENT                               */
+/* -------------------------------------------------------------------------- */
+.bag {
+  background-color: var(--bg-bag);
+  min-height: 100vh;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                    PATH                                    */
+/* -------------------------------------------------------------------------- */
+.path {
+  // background-color: #3ADF93;
+  background: url('../src/assets/PicturesPaths/chemin1.jpg') no-repeat center/cover;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.path .btn-fight {
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  animation: heartbeat 1500ms ease-in-out infinite both;
+  user-select: none;
+}
+
+
+
+
+
+.path .icone-fight {
+  border-radius: 50%;
+  box-shadow: 0 8px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                               POKEMON GUESSER                              */
+/* -------------------------------------------------------------------------- */
+
+.btn {
+  background-color: none;
+    border: 0;
+    cursor: pointer;
+    border: 1px solid $font-light;
+    width: 100%;
+      background-color: $color-accent;
+      text-transform: uppercase;
+      
+}
+.guesser-container {
+  background-color: #49BBE5;
+  min-height: 100vh;
+  overflow: hidden;
+  color: $font-light;
+  position: relative;
+  z-index: 3;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+  min-height: 100vh;
+    
+    background: url('./assets/icon/pokeball.png') no-repeat;
+    background-size: 100%;
+    filter: opacity(10%) grayscale(100%);
+    z-index: -1;
+    top: 354px;
+    left: -160px;
+    transform: rotate(15deg);
+  }
+
+  
+
+  h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: $font-light;
+    margin-top: 100px;
+    z-index: 4;
+
+  }
+
+  .guesser-inner-container {
+    display: flex;
+    margin: 40px auto;
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+
+    
+
+    form {
+      .answer-input, .btn {
+        // padding: 10px;
+        background-color: #C8EAF7;
+        outline: none;
+        border: 1px solid $font-light;
+        height: 30px;
+      }
+
+      .answer-input {
+        border-radius: 10px 0 0 10px;
+        padding-left: 10px;
+      }
+
+      .btn-submit {
+        width: 50px;
+        background-color: $color-accent;
+        text-transform: uppercase;
+        color: $font-light;
+        background-color: none;
+        border: 0;
+        cursor: pointer;
+        border: 1px solid $font-light;
+        border-radius: 0 10px 10px 0;
+      }
+    }
+
+    .poke-color {
+      width: 100%;
+      margin-top: 40px;
+      filter: brightness(0%);
+      user-select: none;
+    }
+    .poke-shadow {
+      width: 100%;
+      margin-top: 40px;
+      filter: brightness(100%);
+      transition: 350ms;
+    }
+
+    .goodGuessContainer {
+      .cta-next {
+        width: 60%;
+        height: 25px;
+        display: block;
+        margin: 0 auto;
+        border-radius: 10px;
+        border: 1px solid $font-light;
+        cursor: pointer;
+        margin-top: 20px;
+        color:$font-light;
+        transition: background-color 250ms ease-out;
+
+        &:hover {
+          background-color: rgba($color: $color-accent, $alpha: .7);
+        }
+      }
+    }
+
+    .wrongGuessContainer {
+      h3 {
+        animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+        color: #bc0202;
+      }
+    }
+
+    .cta-skip {
+      width: 60%;
+      height: 25px;
+      display: block;
+      margin: 20px auto;
+      border-radius: 10px;
+      color:$font-light;
+
+    }
+
+   
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                CLOSE BUTTON                                */
+/* -------------------------------------------------------------------------- */
+.close-container {
+  width:250px;
+  height: 170px;
+  background-color: $font-light;
+  position: absolute;
+  top: 0;
+  right: 0;
+  clip-path: polygon(66% 0, 100% 100%, 100% 0);
+  
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: #3884C9;
+    width: 242px;
+    height: 326px;
+    z-index: 2;
+    clip-path: polygon(62% 0, 66% 0, 100% 49%, 81% 100%);
+    top: 0;
+    right: -6px;
+    
+  }
+
+  .btn-close {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    background: transparent;
+    outline: none;
+    border: 0;
+    cursor: pointer;
+
+    .close-img {
+      width: 26px;
+      height: 26px;
+    }
+  }
+}
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                  ANIMATION                                 */
+/* -------------------------------------------------------------------------- */
+// Animation
+@keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  50% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+
+@keyframes shake-horizontal {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translateX(-10px);
+            transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: translateX(10px);
+            transform: translateX(10px);
+  }
+  80% {
+    -webkit-transform: translateX(8px);
+            transform: translateX(8px);
+  }
+  90% {
+    -webkit-transform: translateX(-8px);
+            transform: translateX(-8px);
   }
 }
 
