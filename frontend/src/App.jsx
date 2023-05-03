@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
-import Pokemon from "./Classes/PokemonStats";
+import Pokemon from "./Classes/Pokemon";
 import Starter from "./components/Starter";
-// import PokemonCards from "./components/PokemonCards";
-import "./App.css";
-// import Pokedex from "./components/Pokedex";
+
+import "./App.scss";
 
 function App() {
   const [pokemonsArray, setPokemonsArray] = useState([]);
+  const [pokemonsStarter, setPokemonsStarter] = useState([]);
+  // const [pokemonTeam, setPokemonTeam] = useState([]);
+  // const [mode, setMode] = useState("path");
+  // const [pokemonWon, setPokemonWon] = useState([]);
+  // const [score, setScore] = useState(0);
 
   console.info(pokemonsArray);
-  const [pokemonsStarter, setPokemonsStarter] = useState([]);
   // const [pokemonTeam, setPokemonTeam] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +20,7 @@ function App() {
       const starter = [];
       const idStarter = [1, 4, 7];
 
-      for (let i = 1; i <= 31; i += 1) {
+      for (let i = 1; i <= 200; i += 1) {
         tabPokemon.push(`https://pokeapi.co/api/v2/pokemon/${i}`);
       }
       const responses = await Promise.all(tabPokemon.map((url) => fetch(url)));
@@ -35,9 +38,14 @@ function App() {
 
       setPokemonsStarter(starter);
       setPokemonsArray(pokemons);
+      setPokemonsStarter(starter);
     };
     fetchData();
   }, []);
+
+  // const handleClick = () => {
+  //   setMode("guessPokemon");
+  // };
 
   return (
     <div>

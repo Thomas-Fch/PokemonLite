@@ -32,6 +32,9 @@
   },
   "dependencies": {
     "sass": "^1.62.1",
-    "swiper": "^6.8.4"
+    "swiper": "^6.8.4",
+    "husky": "^8.0.3",
+    "node-sass": "^8.0.0",
+    "mysql2": "^3.2.3"
   }
 }

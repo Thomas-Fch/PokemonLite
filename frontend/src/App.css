@@ -1,6 +1,15 @@
 /* STARTER CSS  */
+:root {
+  --bg-bag:#F1BE39;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
 * {
   box-sizing: border-box;
+  padding:0;
+  margin:0;
 }
 body {
   box-sizing: border-box;
@@ -42,6 +51,7 @@ button {
   margin-top: 117px;
   width: 100px;
 }
+
 
 .pokemon-card {
   height: 400px;
@@ -252,7 +262,7 @@ span {
 /* the END  */
 
 /* -------------------------------------------------------------------------- */
-/*                                   POKEDEX                                  */
+/*                                BAG COMPONENT                               */
 /* -------------------------------------------------------------------------- */
 .searchBarPok {
   background-color: white;
