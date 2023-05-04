@@ -1,5 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import bag from "../assets/icon/sac-a-dos.png";
+import pokeball from "../assets/icon/pokeball.png";
+import map from "../assets/icon/carte.png";
+import book from "../assets/icon/livre_black.png";
+
+import pokeballBg from "../assets/icon/fondpokeball.png";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -25,34 +31,30 @@ function Navbar() {
           <div className="figureWrapper">
             <figure>
               <Link to="/Path">
-                <img src="./src/assets/icon/sac-a-dos.png" alt="backapck" />
+                <img src={bag} alt="backapck" />
                 <figcaption>Bag</figcaption>
               </Link>
             </figure>
             <figure>
               <Link to="/Path">
-                <img src="./src/assets/icon/pokeball.png" alt="pokeball" />
+                <img src={pokeball} alt="pokeball" />
                 <figcaption>Team</figcaption>
               </Link>
             </figure>
             <figure>
               <Link to="/Path">
-                <img src="./src/assets/icon/carte.png" alt="map" />
+                <img src={map} alt="map" />
                 <figcaption>Map</figcaption>
               </Link>
             </figure>
             <figure>
               <Link to="/Path/Pokedex">
-                <img src="./src/assets/icon/livre_black.png" alt="book" />
+                <img src={book} alt="book" />
                 <figcaption>Pokedex</figcaption>
               </Link>
             </figure>
           </div>
-          <img
-            src="./src/assets/icon/fondpokeball.png"
-            alt="pokeball"
-            className="backgroundPokeball"
-          />
+          <img src={pokeballBg} alt="pokeball" className="backgroundPokeball" />
         </nav>
       );
     }
@@ -75,34 +77,30 @@ function Navbar() {
           <div className="figureWrapper">
             <figure>
               <Link to="/Path">
-                <img src="./src/assets/icon/sac-a-dos.png" alt="backapck" />
+                <img src={bag} alt="backapck" />
                 <figcaption>Bag</figcaption>
               </Link>
             </figure>
             <figure>
               <Link to="/Path">
-                <img src="./src/assets/icon/pokeball.png" alt="pokeball" />
+                <img src={pokeball} alt="pokeball" />
                 <figcaption>Team</figcaption>
               </Link>
             </figure>
             <figure>
               <Link to="/Path">
-                <img src="./src/assets/icon/carte.png" alt="map" />
+                <img src={map} alt="map" />
                 <figcaption>Map</figcaption>
               </Link>
             </figure>
             <figure>
               <Link to="/Path/Pokedex">
-                <img src="./src/assets/icon/livre_black.png" alt="book" />
+                <img src={book} alt="book" />
                 <figcaption>Pokedex</figcaption>
               </Link>
             </figure>
           </div>
-          <img
-            src="./src/assets/icon/fondpokeball.png"
-            alt="pokeball"
-            className="backgroundPokeball"
-          />
+          <img src={pokeballBg} alt="pokeball" className="backgroundPokeball" />
         </nav>
       );
     }

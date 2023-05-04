@@ -10,7 +10,7 @@ import "./App.scss";
 
 function App() {
   const [pokemonsArray, setPokemonsArray] = useState([]);
-  const [pokemonsStarter, setPokemonsStarter] = useState([]);
+  // const [pokemonsStarter, setPokemonsStarter] = useState([]);
   const [pokemonWon, setPokemonWon] = useState([]);
   const [score, setScore] = useState(0);
 
@@ -37,15 +37,29 @@ function App() {
       });
 
       setPokemonsArray(pokemons);
-      setPokemonsStarter(starter);
+      // setPokemonsStarter(starter);
     };
     fetchData();
   }, []);
 
+  const handleEncounters = (index) => {
+    console.info(index);
+    setPokemonsArray((prevState) =>
+      prevState.map((pokemon, mapIndex) => {
+        if (mapIndex === index) {
+          return {
+            ...pokemon,
+            encounter: true,
+          };
+        }
+
+        return pokemon;
+      })
+    );
+  };
+
   return (
     <Routes className="App">
-      {console.info(pokemonsArray)}
-      {console.info(pokemonsStarter)}
       <Route path="/" element={<Login />} />
       <Route path="/Path" element={<Path />} />
       <Route
@@ -55,6 +69,7 @@ function App() {
             pokemonsArray={pokemonsArray}
             setPokemonWon={setPokemonWon}
             setScore={setScore}
+            handleEncounters={handleEncounters}
           />
         }
       />
@@ -65,6 +80,7 @@ function App() {
             pokemonWon={pokemonWon}
             score={score}
             setPokemonWon={setPokemonWon}
+            setScore
           />
         }
       />
