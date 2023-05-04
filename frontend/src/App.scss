@@ -2,10 +2,10 @@
   margin: 0;
   padding: 0;
   border: 0;
-  cursor: default;
   text-decoration: none;
   list-style: none;
   box-sizing: border-box;
+  outline: none;
 
 }
 
@@ -15,7 +15,12 @@ $font-stack: "Inter",sans-serif;
 $color-accent: #F18557;
 $main-red: #d65c5c;
 
+
+
+
 .App {
+  background-color: #d65c5c;
+  height: 100vh;
   text-align: center;
 }
 
@@ -134,49 +139,73 @@ img.imgPokedex:hover {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                              NAVBAR                              */
+/*                                              NAVBAR                        */
 /* -------------------------------------------------------------------------- */
 nav {
+  z-index: 999;
   height: 5rem;
-  background-color: red;
+  background-color: rgb(255, 255, 255);
   border-radius: 10px 10px 0px 0px;
   width: 100vw;
   position: fixed;
   bottom: -11%;
   display: flex;
   align-items: flex-end;
-  justify-content: space-evenly;
+  justify-content: center;
   padding-bottom: 5px;
   transition: 350ms;
-
-  img{
+  .figureWrapper {
+    display: flex;
+    width: 100vw;
+    justify-content: space-evenly;
+  }
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  figcaption {
+    font-size: 13px;
+    font-family: $font-stack;
+    font-weight: 700;
+    color: $font-dark;
+  }
+  img {
+    cursor: pointer;
     height: 30px;
   }
-  
-  .arrowWrapper{
-    background-color: #61dafb;
+
+  .arrowWrapper {
+    cursor: pointer;
+    background-color: #ffffff;
     width: 5.5rem;
     height: 1.75rem;
     border-radius: 50px;
     position: absolute;
     display: flex;
     align-items: center;
-    justify-content: center;
-    top:-15%
+    top: -15%;
   }
-
-  
-    .arrowUp{
-      width: 2px;
-      border-radius: 5px;
-      border-right : 12px solid transparent;
-      border-bottom : 20px solid rgba(88, 88, 88, 1);
-      border-left : 12px solid transparent;
-      transition: 350ms;
-      }
+  .backgroundPokeball {
+    display: none;
+  }
+  .arrowUp {
+    width: 2px;
+    border-radius: 5px;
+    border-right: 12px solid transparent;
+    border-bottom: 20px solid rgba(88, 88, 88, 1);
+    border-left: 12px solid transparent;
+    transition: 350ms;
+  }
+  .arrowLeft {
+    height: 2px;
+    border-radius: 5px;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 21px solid rgb(250, 250, 250);
+    transition: 350ms;
+  }
 }
-
-
 
 /* -------------------------------------------------------------------------- */
 /*                                BAG COMPONENT                               */
@@ -186,35 +215,34 @@ nav {
   min-height: 100vh;
 }
 
-
 /* -------------------------------------------------------------------------- */
 /*                                    PATH                                    */
 /* -------------------------------------------------------------------------- */
 .path {
-  background: url('../src/assets/PicturesPaths/chemin1.jpg') no-repeat center/cover;
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
+  background: url("../src/assets/PicturesPaths/chemin1.jpg") no-repeat
+    center/cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .btn-fight {
+    cursor: pointer;
+    background: url("./assets/road/rencontre.png") no-repeat
+    center/cover;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    outline: none;
+    animation: heartbeat 1500ms ease-in-out infinite both;
+    user-select: none;
+
+    .icone-fight {
+      border-radius: 50%;
+      box-shadow: 0 8px 4px rgba(0, 0, 0, 0.25);
+    }
+  }
 }
-
-.path .btn-fight {
-  background: transparent;
-  border: 0;
-  border-radius: 50%;
-  outline: none;
-  cursor: pointer;
-  animation: heartbeat 1500ms ease-in-out infinite both;
-  user-select: none;
-}
-
-.path .icone-fight {
-  border-radius: 50%;
-  box-shadow: 0 8px 4px rgba(0, 0, 0, 0.25);
-
-}
-
-
-
 
 /* -------------------------------------------------------------------------- */
 /*                               POKEMON GUESSER                              */
@@ -230,9 +258,8 @@ nav {
   text-transform: uppercase;
 }
 .guesser-container {
-
-  background-color: #49BBE5;
-  height: 100vh;
+  background-color: #49bbe5;
+  min-height: 100vh;
   overflow: hidden;
   color: $font-light;
   position: relative;
@@ -264,8 +291,8 @@ nav {
     position: absolute;
     width: 100%;
     min-height: 100vh;
-    
-    background: url('./assets/icon/pokeball.png') no-repeat;
+
+    background: url("./assets/icon/pokeball.png") no-repeat;
     background-size: 100%;
     filter: opacity(10%) grayscale(100%);
     z-index: -1;
@@ -273,7 +300,9 @@ nav {
     left: -160px;
     transform: rotate(15deg);
   }
+D
   h2 {
+
     text-align: center;
     text-transform: uppercase;
     color: $font-light;
@@ -281,7 +310,6 @@ nav {
     margin-bottom: 20px;
     z-index: 4;
     font-size: 32px;
-
   }
 
   .guesser-inner-container {
@@ -293,11 +321,11 @@ nav {
     justify-content: center;
     z-index: 4;
 
-    
-
     form {
+
       .answer-input, .btn {
         background-color: #C8EAF7;
+
         outline: none;
         border: 1px solid $font-light;
         height: 30px;
@@ -347,20 +375,24 @@ nav {
         border-radius: 10px;
         border: 1px solid $font-light;
         cursor: pointer;
+
         margin-top: 10px;
         color:$font-light;
+
         transition: background-color 250ms ease-out;
 
         &:hover {
-          background-color: rgba($color: $color-accent, $alpha: .7);
+          background-color: rgba($color: $color-accent, $alpha: 0.7);
         }
       }
     }
 
     .wrongGuessContainer {
       h3 {
+
         animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
         color: $main-red;
+
       }
     }
 
@@ -371,11 +403,8 @@ nav {
       display: block;
       margin: 20px auto;
       border-radius: 10px;
-      color:$font-light;
-
+      color: $font-light;
     }
-
-   
   }
 }
 
@@ -386,7 +415,7 @@ nav {
 
 
 .close-container {
-  width:250px;
+  width: 250px;
   height: 170px;
   background-color: $font-light;
   position: absolute;
@@ -397,6 +426,8 @@ nav {
   &::after {
     content: "";
     position: absolute;
+
+
     width: 242px;
     height: 326px;
     z-index: 2;
@@ -416,6 +447,7 @@ nav {
     outline: none;
     border: 0;
     cursor: pointer;
+    opacity: 0.8;
 
     .close-img {
       width: 26px;
@@ -423,6 +455,7 @@ nav {
     }
   }
 }
+
 
 /* -------------------------------------------------------------------------- */
 /*                                  GAME OVER                                 */
@@ -479,6 +512,186 @@ nav {
 
 
 
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                              LOGIN                         */
+/* -------------------------------------------------------------------------- */
+.login {
+  background-image: url("../src/assets/icon/Welcome_backgroud.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  p,
+  span {
+    color: #414141;
+    font-size: 12px;
+    font-family: $font-stack;
+  }
+  span {
+    cursor: pointer;
+    font-weight: 600;
+  }
+  h1 {
+    color: $font-light;
+    margin-bottom: 3.5rem;
+  }
+  form {
+    width: 80vw;
+    height: 50vh;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    label {
+      color: #414141;
+      font-family: $font-stack;
+      font-size: 14px;
+    }
+    input {
+      cursor: pointer;
+      margin: 2rem 0 0.5rem 0;
+      width: 90%;
+      background-color: rgba(255, 255, 255, 0);
+      border-bottom: 2px solid #414141;
+    }
+    ::placeholder {
+      font-size: 14px;
+    }
+    div,
+    a {
+      width: 90%;
+    }
+    #login {
+      width: 100%;
+      margin-top: 3rem;
+      padding: 0.75rem;
+      font-size: 16px;
+      border: 0;
+      color: $font-light;
+      font-weight: 600;
+      background: #f18557;
+      border-radius: 40px;
+    }
+  }
+  .passwordInput {
+    position: relative;
+    input {
+      width: 100%;
+    }
+    img {
+      cursor: pointer;
+      position: absolute;
+      width: 18px;
+      bottom: 18%;
+      right: 0%;
+      opacity: 0.8;
+    }
+    span {
+      position: absolute;
+      bottom: -25%;
+      right: 0%;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  nav {
+    background-color: #2d313e;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-radius: 0;
+    top: 0%;
+    left: 0%;
+    height: 100vh;
+    width: 14rem;
+    img {
+      margin-left: 1rem;
+      filter: invert(1);
+    }
+    .figureWrapper {
+      display: block;
+      width: 100%;
+      margin-top: 4rem;
+    }
+    a {
+      cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      height: 4rem;
+    }
+    figure:hover {
+      background-color: #ef9a5b;
+    }
+    figcaption {
+      padding-left: 0.75rem;
+      color: $font-light;
+      font-size: 20px;
+    }
+    .arrowWrapper {
+      height: 5.5rem;
+      width: 1.75rem;
+      top: 50%;
+      right: -6%;
+      background-color: #2d313e;
+    }
+    .arrowUp {
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      border-left: 21px solid #efecec;
+    }
+    .backgroundPokeball {
+      display: block;
+      width: 18rem;
+      height: auto;
+      position: absolute;
+      transform: rotate(30deg);
+      left: -60%;
+      bottom: -8%;
+      filter: invert(0);
+      opacity: 30%;
+    }
+  }
+
+  .login {
+    form {
+      width: 25rem;
+      border: 4px solid #ffffff;
+    }
+    h1 {
+      font-size: 40px;
+    }
+    p,
+    span {
+      font-size: 14px;
+    }
+    input {
+      font-size: 18px;
+    }
+    ::placeholder {
+      font-size: 18px !important;
+    }
+    input[type="submit"] {
+      font-size: 20px !important;
+    }
+  }
+}
+
+
+
 /* -------------------------------------------------------------------------- */
 /*                                  ANIMATION                                 */
 /* -------------------------------------------------------------------------- */
@@ -486,23 +699,23 @@ nav {
 @keyframes heartbeat {
   from {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     -webkit-transform-origin: center center;
-            transform-origin: center center;
+    transform-origin: center center;
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
   50% {
     -webkit-transform: scale(0.9);
-            transform: scale(0.9);
+    transform: scale(0.9);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
   100% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
 }
 
@@ -510,28 +723,27 @@ nav {
   0%,
   100% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
   }
   10%,
   30%,
   50%,
   70% {
     -webkit-transform: translateX(-10px);
-            transform: translateX(-10px);
+    transform: translateX(-10px);
   }
   20%,
   40%,
   60% {
     -webkit-transform: translateX(10px);
-            transform: translateX(10px);
+    transform: translateX(10px);
   }
   80% {
     -webkit-transform: translateX(8px);
-            transform: translateX(8px);
+    transform: translateX(8px);
   }
   90% {
     -webkit-transform: translateX(-8px);
-            transform: translateX(-8px);
+    transform: translateX(-8px);
   }
 }
-
