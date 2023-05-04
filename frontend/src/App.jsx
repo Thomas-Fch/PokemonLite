@@ -11,7 +11,7 @@ import "./App.scss";
 
 function App() {
   const [pokemonsArray, setPokemonsArray] = useState([]);
-  const [pokemonsStarter, setPokemonsStarter] = useState([]);
+  // const [pokemonsStarter, setPokemonsStarter] = useState([]);
   const [pokemonWon, setPokemonWon] = useState([]);
   const [score, setScore] = useState(0);
 
@@ -38,7 +38,7 @@ function App() {
       });
 
       setPokemonsArray(pokemons);
-      setPokemonsStarter(starter);
+      // setPokemonsStarter(starter);
     };
     fetchData();
   }, []);
@@ -57,15 +57,10 @@ function App() {
         return pokemon;
       })
     );
-    pokemonsArray[index].encounter = true;
   };
-
-  console.info(pokemonWon);
 
   return (
     <Routes className="App">
-      {console.info(pokemonsArray)}
-      {console.info(pokemonsStarter)}
       <Route path="/" element={<Login />} />
       <Route path="/Path" element={<Path />} />
       <Route
@@ -86,6 +81,7 @@ function App() {
             pokemonWon={pokemonWon}
             score={score}
             setPokemonWon={setPokemonWon}
+            setScore
           />
         }
       />

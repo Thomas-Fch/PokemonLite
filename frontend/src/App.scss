@@ -18,12 +18,6 @@ $main-red: #d65c5c;
 
 
 
-.App {
-  background-color: #d65c5c;
-  height: 100vh;
-  text-align: center;
-}
-
 body {
   font-family: $font-stack;
 }
@@ -250,20 +244,22 @@ nav {
 
 .btn {
   background-color: none;
+  width: 150px;
+
   border: 0;
   cursor: pointer;
   border: 1px solid $font-light;
-  width: 100%;
   background-color: $color-accent;
   text-transform: uppercase;
 }
 .guesser-container {
   background-color: #49bbe5;
-  min-height: 100vh;
+  height: 100vh;
   overflow: hidden;
   color: $font-light;
   position: relative;
   z-index: 3;
+  text-align: center;
 
   .close-blue::after {
     background-color: #3884C9;
@@ -276,7 +272,6 @@ nav {
     color: black;
     padding: 10px;
     border-radius: 10px;
-    margin: 10px 0 0 10px;
     border: 1px solid $font-light;
 
     .roundNumber {
@@ -296,11 +291,11 @@ nav {
     background-size: 100%;
     filter: opacity(10%) grayscale(100%);
     z-index: -1;
-    top: 354px;
-    left: -160px;
+    bottom: -57%;
+    left: -36%;
     transform: rotate(15deg);
   }
-D
+
   h2 {
 
     text-align: center;
@@ -315,8 +310,8 @@ D
   .guesser-inner-container {
     display: flex;
     margin: 40px auto;
-    width: 80%;
     flex-direction: column;
+    width: 80%;
     align-items: center;
     justify-content: center;
     z-index: 4;
@@ -348,16 +343,15 @@ D
         border-radius: 0 10px 10px 0;
       }
     }
+    .poke-color, .poke-shadow {
+      width: 100%;
+    }
 
     .poke-color {
-      width: 100%;
-      margin-top: 40px;
       filter: brightness(0%);
       user-select: none;
     }
     .poke-shadow {
-      width: 100%;
-      margin-top: 40px;
       filter: brightness(100%);
       transition: 350ms;
     }
@@ -368,7 +362,6 @@ D
       }
 
       .cta-next {
-        width: 60%;
         height: 25px;
         display: block;
         margin: 0 auto;
@@ -376,7 +369,7 @@ D
         border: 1px solid $font-light;
         cursor: pointer;
 
-        margin-top: 10px;
+        margin-top: 20px;
         color:$font-light;
 
         transition: background-color 250ms ease-out;
@@ -391,13 +384,21 @@ D
       h3 {
 
         animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
-        color: $main-red;
+        // color: $main-red;
 
+      }
+
+      .cta-skip {
+        background-color: $main-red;
+        height: 25px;
+        display: block;
+        margin: 20px auto;
+        border-radius: 10px;
+        color: $font-light;
       }
     }
 
     .cta-skip {
-      width: 40%;
       background-color: $main-red;
       height: 25px;
       display: block;
@@ -468,13 +469,6 @@ D
   text-align: center;
   display: flex;
   align-items: center;
-  // &::after {
-  //   content: "";
-  //   width: 100%;
-  //   height: 100vh;
-  //   filter: blur(20px);
-  //   position: absolute;
-  // }
 
   .game-over-container {
     width: 300px;
@@ -604,6 +598,14 @@ D
   }
 }
 
+
+/* ------------------------------------ * ----------------------------------- */
+
+
+/* -------------------------------------------------------------------------- */
+/*                                MEDIA QUERIES                               */
+/* -------------------------------------------------------------------------- */
+
 @media screen and (min-width: 1024px) {
   nav {
     background-color: #2d313e;
@@ -687,6 +689,82 @@ D
     input[type="submit"] {
       font-size: 20px !important;
     }
+  }
+
+  /* ----------------------------- POKEMON GUESSER ---------------------------- */
+  .guesser-container {
+    &::before {
+      width: 558px;
+      z-index: -1;
+      transform: rotate(333deg);
+      left: initial;
+      right: -13%;
+      bottom: -51%;
+    }
+    .round {
+      padding: 5px;
+    }
+    .guesser-inner-container {
+      padding-top: 30px;
+      width: 500px;
+
+
+      form {
+        width: 100%;
+        .answer-input {
+          margin: 20px auto;
+          display: block;
+          width: 50%;
+        }
+      }
+      .poke-color, .poke-shadow {
+        width: 70%;
+      }
+
+      
+
+      .cta-skip {
+        height: 28px;
+      }
+    }
+  }
+
+  /* -------------------------------- GAME OVER ------------------------------- */
+  .game-over {
+    .game-over-container {
+      width: 700px;
+
+      h2 {
+        font-size: 40px;
+      }
+
+      p {
+        margin-bottom: 15px;
+        font-size: 32px;
+        color: $font-light;
+        font-weight: bold;
+      }
+
+      .list-pokemon-img {
+        img {
+          width: 150px;
+        }
+      }
+
+      .btn {
+        width: 50%;
+        transition: 350ms;
+
+        &:hover {
+          background-color: rgba($color: $color-accent, $alpha: 0.8);
+        }
+      }
+    }
+  }
+
+  /* ------------------------------ CLOSE BUTTON ------------------------------ */
+  .close-container {
+    display: none;
   }
 }
 

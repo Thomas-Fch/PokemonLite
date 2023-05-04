@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import CloseBtn from "./CloseBtn";
 import InputGuess from "./InputGuess";
+import Navbar from "./Navbar";
 
 function PokemonGuesser({
-  setMode,
   pokemonsArray,
   setPokemonWon,
   setScore,
@@ -30,7 +30,8 @@ function PokemonGuesser({
     setTurn(0);
     setScore((prev) => prev + 1);
     handleEncounters(index);
-    console.info(pokemonsArray[index].encounter);
+    console.info(index);
+    // console.info(pokemonsArray[index]);
   };
 
   const handleClickSkip = () => {
@@ -50,7 +51,7 @@ function PokemonGuesser({
 
   return (
     <div className="guesser-container">
-      <CloseBtn setMode={setMode} />
+      <CloseBtn setScore={setScore} setPokemonWon={setPokemonWon} />
 
       {pokemonToGuess && (
         <div className="guesser-inner-container">
@@ -59,7 +60,7 @@ function PokemonGuesser({
             Round <span className="roundNumber">{round}</span> / 10
           </div>
           <h2>Who is that pokemon ?</h2>
-          <p> {pokemonToGuess.name} </p>
+          {console.info(pokemonToGuess.name)}
           <InputGuess
             setTurn={setTurn}
             setIsGuessed={setIsGuessed}
@@ -109,13 +110,13 @@ function PokemonGuesser({
           )}
         </div>
       )}
+      <Navbar />
     </div>
   );
 }
 
 PokemonGuesser.propTypes = {
   pokemonsArray: PropTypes.shape([]).isRequired,
-  setMode: PropTypes.func.isRequired,
   setPokemonWon: PropTypes.func.isRequired,
   setScore: PropTypes.func.isRequired,
   handleEncounters: PropTypes.func.isRequired,
