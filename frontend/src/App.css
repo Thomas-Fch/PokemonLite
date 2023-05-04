@@ -1,6 +1,12 @@
 /* STARTER CSS  */
 :root {
-  --bg-bag:#F1BE39;
+    --bg-bag:#F1BE39;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
 }
 
 body {

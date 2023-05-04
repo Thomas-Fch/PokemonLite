@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 /* eslint-disable react/jsx-no-comment-textnodes */
@@ -38,6 +39,7 @@ function Stats({ pokemon }) {
         />
 
         <div className="pokeTop">
+          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
           <div className="arrowUp" onClick={handleClick} />
           <h1>{pokemon.name}</h1>
           <h2 className="pokeTitle">

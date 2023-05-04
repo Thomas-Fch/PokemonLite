@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
-// import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import Starter from "./components/Starter";
+import Login from "./components/Login";
+import Path from "./components/Path";
+import GameOver from "./components/GameOver";
+import Pokedex from "./components/Pokedex";
+import PokemonGuesser from "./components/PokemonGuesser";
 import Pokemon from "./Classes/Pokemon";
-// import Navbar from "./components/Navbar";
-// import Login from "./components/Login";
 
 import "./App.scss";
 // import "./App.css";
-import Starter from "@components/Starter";
+
+console.info(Starter);
 
 function App() {
   const [pokemonsArray, setPokemonsArray] = useState([]);
@@ -40,19 +45,59 @@ function App() {
 
       setPokemonsStarter(starter);
       setPokemonsArray(pokemons);
-      setPokemonsStarter(starter);
+      // setPokemonsStarter(starter);
     };
     fetchData();
   }, []);
 
+  const handleEncounters = (index) => {
+    console.info(index);
+    setPokemonsArray((prevState) =>
+      prevState.map((pokemon, mapIndex) => {
+        if (mapIndex === index) {
+          return {
+            ...pokemon,
+            encounter: true,
+          };
+        }
+
+        return pokemon;
+      })
+    );
+  };
+
   return (
-    <div className="App">
+    <Routes className="App">
       {console.info(pokemonsArray)}
       {console.info(pokemonsStarter)}
-      {/* <Login /> */}
-      {/* <Navbar /> */}
-      <Starter pokemonsArray={pokemonsArray} />
-    </div>
+      <Route path="/" element={<Login />} />
+      <Route path="/Path" element={<Path />} />
+      <Route
+        path="/Path/PokemonGuesser"
+        element={
+          <PokemonGuesser
+            pokemonsArray={pokemonsArray}
+            setPokemonWon={setPokemonWon}
+            setScore={setScore}
+            handleEncounters={handleEncounters}
+          />
+        }
+      />
+      <Route
+        path="/Path/GameOver"
+        element={
+          <GameOver
+            pokemonWon={pokemonWon}
+            score={score}
+            setPokemonWon={setPokemonWon}
+          />
+        }
+      />
+      <Route
+        path="/Path/Pokedex"
+        element={<Pokedex pokemonsArray={pokemonsArray} />}
+      />
+    </Routes>
   );
 }
 export default App;
