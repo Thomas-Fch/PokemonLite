@@ -6,7 +6,6 @@ import Path from "./components/Path";
 import GameOver from "./components/GameOver";
 import Pokedex from "./components/Pokedex";
 import PokemonGuesser from "./components/PokemonGuesser";
-
 import "./App.scss";
 
 function App() {
