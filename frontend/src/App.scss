@@ -12,56 +12,11 @@ $font-light: #ffffff;
 $font-stack: "Inter", sans-serif;
 $color-accent: #f18557;
 
-.App {
-  background-color: #d65c5c;
-  height: 100vh;
-  text-align: center;
-}
-h1,
-h2,
-h3,
-p {
-  font-family: $font-stack;
-}
-
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-
 body {
   font-family: $font-stack;
 }
 
    
-
-.App-link {
-  color: #61dafb;
-}
-
-
-// @keyframes App-logo-spin {
-//   from {
-//     transform: rotate(0deg);
-//   }
-//   to {
-//     transform: rotate(360deg);
-//   }
-// }
-
 // button {
 //   font-size: calc(10px + 2vmin);
 // } 
@@ -102,7 +57,6 @@ body {
 
 /* -------------------------------- SEARCH ------------------------------- */
 
-
 .searchPokedex{
   .close-red::after{
     background-color: #CA4040;
@@ -136,7 +90,7 @@ body {
  /* opacity: 80%; */
 }
 
-/* -------------------------------- FILTREBAR ------------------------------- */
+/* -------------------------------- FILTERBAR ------------------------------- */
 .filtrePokedex{
   display: flex;
   color: white;
@@ -193,11 +147,8 @@ img.imgPokedex{
 img.imgPokedexGrey{
   border-radius: 100%;
   width: 70px;
-  // border: 2px solid #FFFFFF;
-  // padding: 10px;
   background-color: grey;
 }
-
 
 
 img.imgPokedex:hover{
@@ -206,13 +157,15 @@ img.imgPokedex:hover{
   margin-right: auto;
 }
 
-.ulPokedex{
-  list-style-type: none;
+.ulPokedex{  
   display: flex;
-  text-align: center;
-  padding-inline-start: none;
-  z-index: 20; 
-  margin-left: 0;     
+      
+}
+
+#name_type{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .liPokedex{
@@ -222,7 +175,6 @@ img.imgPokedex:hover{
   color: white;      
 }
 
-
 .liPokedexName{
   font-weight : bold;
   width: 90px;
@@ -230,6 +182,8 @@ img.imgPokedex:hover{
   padding: 5px;
   color: white;    
   text-transform: uppercase;
+  font-size: 16px;
+  text-align: end;
 
 }
 
@@ -238,20 +192,21 @@ img.imgPokedex:hover{
   color: white;
 }
 
-
 .liPokedexType{
   color: white;
-  font-size: large;
-  width: 95px;
+  font-size: 14px;
+  width: 80px;
   border-radius: 10px;
   display: flex;
   padding-left: 10px;
   justify-content: space-evenly;
   align-items: center; 
+  text-transform: uppercase;
+  font-weight : bold;   
 }
 
 .liPokedexTypeImage{
-  width: 30%;
+  width: 20%;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -680,6 +635,10 @@ nav {
   }
 }
 
+/* ------------------------------------ , ----------------------------------- */
+/* ------------------------------ MEDIA SCREEN ------------------------------ */
+/* ------------------------------------ , ----------------------------------- */
+
 @media screen and (min-width: 1024px) {
   nav {
     background-color: #2d313e;
@@ -764,4 +723,72 @@ nav {
       font-size: 20px !important;
     }
   }
-}}
+
+  /* --------------------------------- POKEDEX -------------------------------- */
+  
+  .close-container {
+    display: none;
+  }
+  
+  #pokedexCard{
+     justify-content: space-around;     
+  }
+
+  .close-container {
+    border-bottom: 0.2rem solid white;
+  }
+
+  .vertical-line {
+       left: 22.5%;
+  }
+  
+  img.imgPokedex {
+      width: 120px;
+  }
+
+img.imgPokedex:hover {
+      width: 180px;
+  }
+  .liPokedexName{
+    font-size: 22px;
+    margin-bottom: 5px;
+  }
+
+  .liPokedex{
+    font-size: 20px;
+  }
+  
+  .liPokedexType{
+    font-size: 18px;
+    width: 100px;
+    
+  }
+  
+/* --------------------------------- POKEDEX -------------------------------- */
+  
+// .liPokedexName{
+//   font-size: 22px;
+//   margin-bottom: 5px;
+//   width: initial;
+// }
+
+
+// .liPokedexType{
+//   color: white;
+//   font-size: 14px;
+//   width: 80px;
+//   border-radius: 10px;
+//   display: flex;
+//   padding-left: 10px;
+//   justify-content: space-evenly;
+//   align-items: center; 
+//   text-transform: uppercase;
+//   font-weight : bold;   
+// }
+
+// .liPokedexTypeImage{
+//   width: 20%;
+// }
+
+
+}
