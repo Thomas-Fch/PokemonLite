@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import CloseBtn from "./CloseBtn";
 import InputGuess from "./InputGuess";
@@ -9,6 +10,8 @@ function PokemonGuesser({ setMode, pokemonsArray, setPokemonWon, setScore }) {
   const [isGuessed, setIsGuessed] = useState();
   const [pokemonToGuess, setPokemonToGuess] = useState({});
   const [round, setRound] = useState(1);
+
+  const navigate = useNavigate();
 
   const getRandomIndex = (maxIndex) => {
     return 1 + Math.floor(Math.random() * maxIndex);
@@ -33,7 +36,7 @@ function PokemonGuesser({ setMode, pokemonsArray, setPokemonWon, setScore }) {
     setPokemonToGuess(pokemonsArray[indexPokemon]);
     setIndex(indexPokemon);
     if (round > 10) {
-      setMode("gameOver");
+      navigate("/Path/GameOver");
     }
   }, [round]);
 

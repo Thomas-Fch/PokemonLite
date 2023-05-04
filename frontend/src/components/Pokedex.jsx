@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import Navbar from "./Navbar";
 import PokedexCard from "./PokedexCard";
 import CloseBtn from "./CloseBtn";
-
 function Pokedex({ pokemonsArray, setMode }) {
   const [searchString, setSearchString] = useState("");
   const [filteredPokemonList, setFilteredPokemonList] = useState(pokemonsArray);
@@ -127,6 +127,7 @@ function Pokedex({ pokemonsArray, setMode }) {
           })}
         {filteredPokemonList?.map((element) => element)}
       </div>
+      <Navbar />
     </div>
   );
 }
