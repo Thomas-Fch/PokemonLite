@@ -11,7 +11,6 @@ function Stats({ pokemon }) {
 
   const handleFavoriteClick = (e) => {
     e.stopPropagation();
-    console.info("click coeur");
     setIsFavorite(!isFavorite);
   };
 
@@ -30,28 +29,30 @@ function Stats({ pokemon }) {
           backgroundColor: getColorsByType(pokemon.type[0].type.name),
         }}
       >
+        {/* <div className="like" /> */}
         {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */}
-        <div className="arrowUp" onClick={handleClick} />
-        <h1>
-          {pokemon.name} <br /> #{pokemon.id.toString().padStart(3, "0")}
-        </h1>
-        <h2>{pokemon.type[0].type.name}</h2>
-        <img className="p-strenght" src={pokemon.image} alt={pokemon.name} />
         <div
-          role="button"
           id="favorite"
           onClick={handleFavoriteClick}
-          onKeyDown={null}
           className={isFavorite ? "isFavorite" : "notFavorite"}
         />
+
+        <div className="pokeTop">
+          <div className="arrowUp" onClick={handleClick} />
+          <h1>{pokemon.name}</h1>
+          <h2 className="pokeTitle">
+            {" "}
+            #{pokemon.id.toString().padStart(3, "0")}
+          </h2>
+        </div>
+        <img className="p-strenght" src={pokemon.image} alt={pokemon.name} />
+
         <img
           className="poke"
           src="./src/assets/icon/fondpokeball.png"
           alt="poke"
         />
-        // eslint-disable-next-line jsx-a11y/control-has-associated-label,
-        jsx-a11y/interactive-supports-focus // eslint-disable-next-line
-        jsx-a11y/control-has-associated-label
+
         <div className="pokemonStat-bottom">
           <h2
             className="type"

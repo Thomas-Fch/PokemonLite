@@ -13,14 +13,17 @@ function Starter({ pokemonsArray }) {
   };
 
   return (
-    <>
+    <div className="starterFile">
       {!showPokemonStat && (
         <div>
-          <h1 className="title">
-            CHOOSE YOUR <br />
-            <span>FAVOURITE</span>
-          </h1>
-          <div style={{ display: "flex", flexDirection: "row" }}>
+          <h1 className="title">MY FAVORITE</h1>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              overflowX: "scroll",
+            }}
+          >
             {pokemonsArray.map((pokemon) => (
               <div key={pokemon.name} style={{ margin: "10px" }}>
                 <PokemonCards
@@ -30,11 +33,10 @@ function Starter({ pokemonsArray }) {
               </div>
             ))}
           </div>
-          <button type="button">START</button>
         </div>
       )}
       {showPokemonStat && <Stats pokemon={selectedPokemon} />}
-    </>
+    </div>
   );
 }
 

@@ -7,7 +7,7 @@ import getColorsByType from "./getColorsByType";
 
 function PokemonCards({ pokemon, onClick }) {
   return (
-    <div style={{ display: "flex", flexDirection: "row" }}>
+    <div style={{ display: "flex", flexDirection: "row", overflow: "hidden" }}>
       {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
       <figure
         className="pokemon-card"
@@ -22,7 +22,7 @@ function PokemonCards({ pokemon, onClick }) {
           alt="pokeball"
         />
         <div className="pokemon-card-top">
-          <h2>{pokemon.name}</h2>
+          <h2 className="PokeCardName">{pokemon.name}</h2>
           <img
             className="pokemon-card-image"
             src={pokemon.image}
