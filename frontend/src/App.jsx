@@ -90,6 +90,7 @@ function App() {
             pokemonWon={pokemonWon}
             score={score}
             setPokemonWon={setPokemonWon}
+            setScore={setScore}
           />
         }
       />
