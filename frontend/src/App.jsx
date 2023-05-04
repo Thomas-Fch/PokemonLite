@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import Pokemon from "./Classes/Pokemon";
+import Login from "./components/Login";
 import Path from "./components/Path";
-import PokemonGuesser from "./components/PokemonGuesser";
 import GameOver from "./components/GameOver";
-import GetStarter from "./components/GetStarter";
+import Pokedex from "./components/Pokedex";
+import PokemonGuesser from "./components/PokemonGuesser";
 
 import "./App.scss";
 
 function App() {
   const [pokemonsArray, setPokemonsArray] = useState([]);
-  const [mode, setMode] = useState("path");
+  const [pokemonsStarter, setPokemonsStarter] = useState([]);
   const [pokemonWon, setPokemonWon] = useState([]);
   const [score, setScore] = useState(0);
 
@@ -19,7 +21,7 @@ function App() {
       const starter = [];
       const idStarter = [1, 4, 7];
 
-      for (let i = 1; i <= 200; i += 1) {
+      for (let i = 1; i <= 151; i += 1) {
         tabPokemon.push(`https://pokeapi.co/api/v2/pokemon/${i}`);
       }
       const responses = await Promise.all(tabPokemon.map((url) => fetch(url)));
@@ -36,36 +38,42 @@ function App() {
       });
 
       setPokemonsArray(pokemons);
+      setPokemonsStarter(starter);
     };
     fetchData();
   }, []);
 
-  const handleClick = () => {
-    setMode("guessPokemon");
-  };
-  console.info(pokemonWon);
-
   return (
-    <div>
-      {console.info(pokemonsArray[0])}
-      {mode === "path" && <Path handleClick={handleClick} />}
-
-      {mode === "guessPokemon" && (
-        <PokemonGuesser
-          setMode={setMode}
-          pokemonsArray={pokemonsArray}
-          setPokemonWon={setPokemonWon}
-          mode={mode}
-          setScore={setScore}
-        />
-      )}
-
-      {mode === "gameOver" && (
-        <GameOver pokemonWon={pokemonWon} setMode={setMode} score={score} />
-      )}
-
-      <GetStarter />
-    </div>
+    <Routes className="App">
+      {console.info(pokemonsArray)}
+      {console.info(pokemonsStarter)}
+      <Route path="/" element={<Login />} />
+      <Route path="/Path" element={<Path />} />
+      <Route
+        path="/Path/PokemonGuesser"
+        element={
+          <PokemonGuesser
+            pokemonsArray={pokemonsArray}
+            setPokemonWon={setPokemonWon}
+            setScore={setScore}
+          />
+        }
+      />
+      <Route
+        path="/Path/GameOver"
+        element={
+          <GameOver
+            pokemonWon={pokemonWon}
+            score={score}
+            setPokemonWon={setPokemonWon}
+          />
+        }
+      />
+      <Route
+        path="/Path/Pokedex"
+        element={<Pokedex pokemonsArray={pokemonsArray} />}
+      />
+    </Routes>
   );
 }
 export default App;

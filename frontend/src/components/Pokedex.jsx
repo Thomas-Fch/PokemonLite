@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import PokedexCard from "./PokedexCard";
+import Navbar from "./Navbar";
 
 function Pokedex({ pokemonsArray }) {
   return (
@@ -21,6 +22,7 @@ function Pokedex({ pokemonsArray }) {
           return <PokedexCard key={pokemon.name} pokemon={pokemon} />;
         })}
       </div>
+      <Navbar />
     </div>
   );
 }
