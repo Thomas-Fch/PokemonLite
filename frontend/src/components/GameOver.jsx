@@ -1,18 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function GameOver({ pokemonWon, setMode, score }) {
+function GameOver({ pokemonWon, setMode, score, setPokemonWon }) {
+  const handleClick = () => {
+    setMode("path");
+    setPokemonWon([]);
+  };
   return (
-    <div>
-      <h1>Well done</h1>
-      <p>You guessed {score} pokemon out of 10 </p>
-      <h2>the list</h2>
-      {pokemonWon.map((pokemon) => (
-        <img src={pokemon.image} alt="" />
-      ))}
-      <button type="button" onClick={() => setMode("path")}>
-        Go back
-      </button>
+    <div className="game-over">
+      <div className="game-over-container">
+        <h2>Game Over</h2>
+        <p>You guessed {score} pokemon out of 10 </p>
+        <div className="list-pokemon-img">
+          {pokemonWon.map((pokemon) => (
+            <img src={pokemon.image} alt="" />
+          ))}
+        </div>
+        <button type="button" className="btn" onClick={handleClick}>
+          Go back
+        </button>
+      </div>
     </div>
   );
 }
@@ -20,6 +27,7 @@ GameOver.propTypes = {
   pokemonWon: PropTypes.shape([]).isRequired,
   setMode: PropTypes.func.isRequired,
   score: PropTypes.number.isRequired,
+  setPokemonWon: PropTypes.func.isRequired,
 };
 
 export default GameOver;

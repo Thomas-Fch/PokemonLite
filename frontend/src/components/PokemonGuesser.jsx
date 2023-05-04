@@ -3,7 +3,13 @@ import PropTypes from "prop-types";
 import CloseBtn from "./CloseBtn";
 import InputGuess from "./InputGuess";
 
-function PokemonGuesser({ setMode, pokemonsArray, setPokemonWon, setScore }) {
+function PokemonGuesser({
+  setMode,
+  pokemonsArray,
+  setPokemonWon,
+  setScore,
+  handleEncounters,
+}) {
   const [turn, setTurn] = useState(0);
   const [index, setIndex] = useState(0);
   const [isGuessed, setIsGuessed] = useState();
@@ -20,6 +26,8 @@ function PokemonGuesser({ setMode, pokemonsArray, setPokemonWon, setScore }) {
     setIsGuessed();
     setTurn(0);
     setScore((prev) => prev + 1);
+    handleEncounters(index);
+    console.info(pokemonsArray[index].encounter);
   };
 
   const handleClickSkip = () => {
@@ -40,10 +48,14 @@ function PokemonGuesser({ setMode, pokemonsArray, setPokemonWon, setScore }) {
   return (
     <div className="guesser-container">
       <CloseBtn setMode={setMode} />
-      <div className="round">{round} / 10</div>
-      <h1>Who is that pokemon ?</h1>
+
       {pokemonToGuess && (
         <div className="guesser-inner-container">
+          <div className="round">
+            {" "}
+            Round <span className="roundNumber">{round}</span> / 10
+          </div>
+          <h2>Who is that pokemon ?</h2>
           <p> {pokemonToGuess.name} </p>
           <InputGuess
             setTurn={setTurn}
@@ -103,6 +115,7 @@ PokemonGuesser.propTypes = {
   setMode: PropTypes.func.isRequired,
   setPokemonWon: PropTypes.func.isRequired,
   setScore: PropTypes.func.isRequired,
+  handleEncounters: PropTypes.func.isRequired,
 };
 
 export default PokemonGuesser;

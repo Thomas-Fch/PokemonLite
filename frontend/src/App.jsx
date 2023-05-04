@@ -3,7 +3,6 @@ import Pokemon from "./Classes/Pokemon";
 import Path from "./components/Path";
 import PokemonGuesser from "./components/PokemonGuesser";
 import GameOver from "./components/GameOver";
-import GetStarter from "./components/GetStarter";
 
 import "./App.scss";
 
@@ -43,11 +42,27 @@ function App() {
   const handleClick = () => {
     setMode("guessPokemon");
   };
-  console.info(pokemonWon);
 
+  const handleEncounters = (index) => {
+    console.info(index);
+    setPokemonsArray((prevState) =>
+      prevState.map((pokemon, mapIndex) => {
+        if (mapIndex === index) {
+          return {
+            ...pokemon,
+            encounter: true,
+          };
+        }
+
+        return pokemon;
+      })
+    );
+    pokemonsArray[index].encounter = true;
+  };
+
+  console.info(pokemonWon);
   return (
     <div>
-      {console.info(pokemonsArray[0])}
       {mode === "path" && <Path handleClick={handleClick} />}
 
       {mode === "guessPokemon" && (
@@ -57,14 +72,18 @@ function App() {
           setPokemonWon={setPokemonWon}
           mode={mode}
           setScore={setScore}
+          handleEncounters={handleEncounters}
         />
       )}
 
       {mode === "gameOver" && (
-        <GameOver pokemonWon={pokemonWon} setMode={setMode} score={score} />
+        <GameOver
+          pokemonWon={pokemonWon}
+          setMode={setMode}
+          score={score}
+          setPokemonWon={setPokemonWon}
+        />
       )}
-
-      <GetStarter />
     </div>
   );
 }
