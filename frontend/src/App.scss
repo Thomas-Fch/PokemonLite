@@ -4,25 +4,19 @@
   border: 0;
   text-decoration: none;
   list-style: none;
+  box-sizing: border-box;
   outline: none;
+
 }
 
-$font-dark: #323232;
-$font-light: #ffffff;
-$font-stack: "Inter", sans-serif;
-$color-accent: #f18557;
+$font-dark: #2B2B2B;
+$font-light: #FFFFFF;
+$font-stack: "Inter",sans-serif;
+$color-accent: #F18557;
+$main-red: #d65c5c;
 
-.App {
-  background-color: #d65c5c;
-  height: 100vh;
-  text-align: center;
-}
-h1,
-h2,
-h3,
-p {
-  font-family: $font-stack;
-}
+
+
 
 body {
   font-family: $font-stack;
@@ -250,20 +244,42 @@ nav {
 
 .btn {
   background-color: none;
+  width: 150px;
+
   border: 0;
   cursor: pointer;
   border: 1px solid $font-light;
-  width: 100%;
   background-color: $color-accent;
   text-transform: uppercase;
 }
 .guesser-container {
   background-color: #49bbe5;
-  min-height: 100vh;
+  height: 100vh;
   overflow: hidden;
   color: $font-light;
   position: relative;
   z-index: 3;
+  text-align: center;
+
+  .close-blue::after {
+    background-color: #3884C9;
+  }
+
+  .round {
+    background-color: #C8EAF7;
+    width: 50%;
+    text-align: center;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid $font-light;
+
+    .roundNumber {
+      color: #F18557;
+      font-weight: bold;
+    }
+  }
+  
 
   &::before {
     content: "";
@@ -275,40 +291,43 @@ nav {
     background-size: 100%;
     filter: opacity(10%) grayscale(100%);
     z-index: -1;
-    top: 354px;
-    left: -160px;
+    bottom: -57%;
+    left: -36%;
     transform: rotate(15deg);
   }
 
-  h1 {
+  h2 {
+
     text-align: center;
     text-transform: uppercase;
     color: $font-light;
-    margin-top: 100px;
+    margin-top: 40px;
+    margin-bottom: 20px;
     z-index: 4;
+    font-size: 32px;
   }
 
   .guesser-inner-container {
     display: flex;
     margin: 40px auto;
-    width: 80%;
     flex-direction: column;
+    width: 80%;
     align-items: center;
     justify-content: center;
     z-index: 4;
 
     form {
-      .answer-input,
-      .btn {
-        // padding: 10px;
-        background-color: #c8eaf7;
+
+      .answer-input, .btn {
+        background-color: #C8EAF7;
+
         outline: none;
         border: 1px solid $font-light;
         height: 30px;
       }
 
       .answer-input {
-        border-radius: 10px 0 0 10px;
+        border-radius: 10px;
         padding-left: 10px;
       }
 
@@ -324,31 +343,35 @@ nav {
         border-radius: 0 10px 10px 0;
       }
     }
+    .poke-color, .poke-shadow {
+      width: 100%;
+    }
 
     .poke-color {
-      width: 100%;
-      margin-top: 40px;
       filter: brightness(0%);
       user-select: none;
     }
     .poke-shadow {
-      width: 100%;
-      margin-top: 40px;
       filter: brightness(100%);
       transition: 350ms;
     }
 
     .goodGuessContainer {
+      h3 {
+        font-size: 18px;
+      }
+
       .cta-next {
-        width: 60%;
         height: 25px;
         display: block;
         margin: 0 auto;
         border-radius: 10px;
         border: 1px solid $font-light;
         cursor: pointer;
+
         margin-top: 20px;
-        color: $font-light;
+        color:$font-light;
+
         transition: background-color 250ms ease-out;
 
         &:hover {
@@ -359,14 +382,24 @@ nav {
 
     .wrongGuessContainer {
       h3 {
-        animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955)
-          both;
-        color: #bc0202;
+
+        animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+        // color: $main-red;
+
+      }
+
+      .cta-skip {
+        background-color: $main-red;
+        height: 25px;
+        display: block;
+        margin: 20px auto;
+        border-radius: 10px;
+        color: $font-light;
       }
     }
 
     .cta-skip {
-      width: 60%;
+      background-color: $main-red;
       height: 25px;
       display: block;
       margin: 20px auto;
@@ -379,6 +412,9 @@ nav {
 /* -------------------------------------------------------------------------- */
 /*                                CLOSE BUTTON                                */
 /* -------------------------------------------------------------------------- */
+
+
+
 .close-container {
   width: 250px;
   height: 170px;
@@ -391,7 +427,8 @@ nav {
   &::after {
     content: "";
     position: absolute;
-    background-color: #3884c9;
+
+
     width: 242px;
     height: 326px;
     z-index: 2;
@@ -399,6 +436,8 @@ nav {
     top: 0;
     right: -6px;
   }
+  
+  
 
   .btn-close {
     padding: 10px;
@@ -418,61 +457,57 @@ nav {
   }
 }
 
+
 /* -------------------------------------------------------------------------- */
-/*                                  ANIMATION                                 */
+/*                                  GAME OVER                                 */
 /* -------------------------------------------------------------------------- */
-// Animation
-@keyframes heartbeat {
-  from {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    -webkit-transform-origin: center center;
-    transform-origin: center center;
-    -webkit-animation-timing-function: ease-out;
-    animation-timing-function: ease-out;
+.game-over {
+  background: url('./assets/icon/Welcome_backgroud.jpg') center/cover;
+  min-height: 100vh;
+  position: relative;
+  backdrop-filter: blur(20px);
+  text-align: center;
+  display: flex;
+  align-items: center;
+
+  .game-over-container {
+    width: 300px;
+    margin: 0 auto;
+    padding-top: 10px;
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 32px;
+    }
+
+    .list-pokemon-img {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      img {
+        display: block;
+        width: 100px;
+      }
+    }
+
+    .btn {
+      border-radius: 10px;
+      padding: 10px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      color: $font-light;
+    }
   }
-  50% {
-    -webkit-transform: scale(0.9);
-    transform: scale(0.9);
-    -webkit-animation-timing-function: ease-out;
-    animation-timing-function: ease-out;
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    -webkit-animation-timing-function: ease-out;
-    animation-timing-function: ease-out;
-  }
+
+
 }
 
-@keyframes shake-horizontal {
-  0%,
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-  10%,
-  30%,
-  50%,
-  70% {
-    -webkit-transform: translateX(-10px);
-    transform: translateX(-10px);
-  }
-  20%,
-  40%,
-  60% {
-    -webkit-transform: translateX(10px);
-    transform: translateX(10px);
-  }
-  80% {
-    -webkit-transform: translateX(8px);
-    transform: translateX(8px);
-  }
-  90% {
-    -webkit-transform: translateX(-8px);
-    transform: translateX(-8px);
-  }
-}
+
+
+
+
+
 
 /* -------------------------------------------------------------------------- */
 /*                                              LOGIN                         */
@@ -563,6 +598,14 @@ nav {
   }
 }
 
+
+/* ------------------------------------ * ----------------------------------- */
+
+
+/* -------------------------------------------------------------------------- */
+/*                                MEDIA QUERIES                               */
+/* -------------------------------------------------------------------------- */
+
 @media screen and (min-width: 1024px) {
   nav {
     background-color: #2d313e;
@@ -646,5 +689,139 @@ nav {
     input[type="submit"] {
       font-size: 20px !important;
     }
+  }
+
+  /* ----------------------------- POKEMON GUESSER ---------------------------- */
+  .guesser-container {
+    &::before {
+      width: 558px;
+      z-index: -1;
+      transform: rotate(333deg);
+      left: initial;
+      right: -13%;
+      bottom: -51%;
+    }
+    .round {
+      padding: 5px;
+    }
+    .guesser-inner-container {
+      padding-top: 30px;
+      width: 500px;
+
+
+      form {
+        width: 100%;
+        .answer-input {
+          margin: 20px auto;
+          display: block;
+          width: 50%;
+        }
+      }
+      .poke-color, .poke-shadow {
+        width: 70%;
+      }
+
+      
+
+      .cta-skip {
+        height: 28px;
+      }
+    }
+  }
+
+  /* -------------------------------- GAME OVER ------------------------------- */
+  .game-over {
+    .game-over-container {
+      width: 700px;
+
+      h2 {
+        font-size: 40px;
+      }
+
+      p {
+        margin-bottom: 15px;
+        font-size: 32px;
+        color: $font-light;
+        font-weight: bold;
+      }
+
+      .list-pokemon-img {
+        img {
+          width: 150px;
+        }
+      }
+
+      .btn {
+        width: 50%;
+        transition: 350ms;
+
+        &:hover {
+          background-color: rgba($color: $color-accent, $alpha: 0.8);
+        }
+      }
+    }
+  }
+
+  /* ------------------------------ CLOSE BUTTON ------------------------------ */
+  .close-container {
+    display: none;
+  }
+}
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                  ANIMATION                                 */
+/* -------------------------------------------------------------------------- */
+// Animation
+@keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  50% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+
+@keyframes shake-horizontal {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+  80% {
+    -webkit-transform: translateX(8px);
+    transform: translateX(8px);
+  }
+  90% {
+    -webkit-transform: translateX(-8px);
+    transform: translateX(-8px);
   }
 }
