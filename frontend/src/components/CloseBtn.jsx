@@ -3,7 +3,7 @@ import closeBtn from "../assets/icon/croix.png";
 
 function CloseBtn({ setMode }) {
   return (
-    <div className="close-container">
+    <div className="close-container close-red ">
       <button
         type="button"
         className="btn-close"

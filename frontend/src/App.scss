@@ -8,6 +8,7 @@
 
 }
 
+
 $font-dark: #2B2B2B;
 $font-light: #FFFFFF;
 $font-stack: "Inter",sans-serif;
@@ -39,114 +40,7 @@ body {
   font-family: $font-stack;
 }
 
-/* -------------------------------------------------------------------------- */
-/*                                   POKEDEX                                  */
-/* -------------------------------------------------------------------------- */
-.searchBarPok {
-  background-color: $font-light;
-  opacity: 70%;
-  border-radius: 10px;
-  border-color: initial;
-  width: 60%;
-  height: 20px;
-  padding: 3px;
-  margin: 25px;
-}
-
-/* -------------------------------- FILTERBAR ------------------------------- */
-.filtrePokedex {
-  display: flex;
-  color: $font-light;
-  justify-content: space-between;
-  border-bottom: 0.2rem solid $font-light;
-  width: 60%;
-  margin-left: 80px;
-}
-
-/* ------------------------------ VERTICAL-LINE ----------------------------- */
-.vertical-line {
-  position: absolute;
-  height: 95%;
-  border-left: 0.2rem solid $font-light;
-  left: 125px;
-}
-
-/* --------------------------------- POKEDEX -------------------------------- */
-#pokedex {
-  background: #d65c5c;
-  position: relative;
-  /* position: absolute; */
-  top: 0;
-  left: 0;
-  z-index: 1;
-  clip-path: polygon(80% 0%, 100% 4%, 100% 100%, 0% 100%, 0% 0%);
-}
-
-.cardPokedex {
-  font-family: "Courier New", Courier, monospace;
-  color: $font-light;
-  margin-right: 0;
-}
-
-#pokedexCard {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: center;
-}
-
-div .cardPokedex {
-  z-index: 20;
-  margin: 15px;
-}
-
-img.imgPokedex {
-  border-radius: 100%;
-  width: 70px;
-  border: 2px solid $font-light;
-  padding: 10px;
-}
-img.imgPokedex:hover {
-  width: 100px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.ulPokedex {
-  list-style-type: none;
-  display: flex;
-  text-align: center;
-  padding-inline-start: none;
-  z-index: 20;
-  margin-left: 0;
-  padding: 10px;
-}
-
-.liPokedex {
-  width: 60px;
-  border-radius: 15px;
-  padding: 5px;
-  color: $font-light;
-}
-#name_type {
-  display: flex;
-  flex-direction: column;
-}
-
-.liPokedexType {
-  color: $font-light;
-  font-size: large;
-  width: 60px;
-  border-radius: 10px;
-  padding: 3px;
-  display: flex;
-  padding-left: 10px;
-  justify-content: space-evenly;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+   
 
 .App-link {
   color: #61dafb;
@@ -174,6 +68,192 @@ button {
       }
 }
 
+
+/* -------------------------------------------------------------------------- */
+/*                                   POKEDEX                                  */
+/* -------------------------------------------------------------------------- */
+
+#pokedex{
+  background: #D65C5C ;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  object-fit: cover;
+}
+
+.livre{
+  width: 110%;
+  position: absolute;
+  opacity: 20%;
+  right: 22%;
+  top: 35%;
+  transform: rotate(13deg);
+  position: fixed;  
+
+}
+
+/* -------------------------------- SEARCH ------------------------------- */
+
+
+.searchPokedex{
+  .close-red::after{
+    background-color: #CA4040;
+  }
+  position: relative;
+  position: fixed;
+  z-index: 100;
+  background-color: #D65C5C;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: -webkit-fill-available;
+  left: -15%;
+  top:0;
+
+} 
+
+.searchBarPok{
+  background-color: rgba(255, 255, 255, 0.252);
+  border-radius: 10px;
+  width: 45%;
+  padding: 5px;
+  margin: 25px 0px 20px 0px;     
+  color: white;
+  // outline: none;
+
+  ::placeholder {
+    color: red;
+    font-weight: bold;
+    opacity: 0.5;      
+    }
+  
+}
+
+.searchIcon{
+ width: 6%;
+ padding: 10px;
+ /* opacity: 80%; */
+}
+
+/* -------------------------------- FILTREBAR ------------------------------- */
+.filtrePokedex{
+  display: flex;
+  color: white;
+  justify-content: space-between;
+  padding-bottom: 5px;
+  border-bottom: 0.2rem solid white;
+  width: 60%;
+  
+}
+
+/* ------------------------------ VERTICAL-LINE ----------------------------- */
+.vertical-line{
+  position: fixed;
+  height: 99%;
+  border-left: 0.2rem solid white;
+  left: 21%;  
+}
+
+/* --------------------------------- POKEDEX -------------------------------- */
+#pokedex{
+  display: flex;
+  flex-direction: column;
+  margin-top: 90px;
+  min-height: 100vh;
+}
+
+.cardPokedex{
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  margin-right: 0;
+}
+   
+#pokedexCard{
+  display: flex;
+  align-items: center; 
+  flex-direction: row;
+  justify-content: center;
+  padding-right: 8%;    
+}
+  
+div .cardPokedex{ 
+  z-index: 20;  
+  margin: 15px; 
+}
+
+img.imgPokedex{
+  border-radius: 100%;
+  width: 70px;
+  border: 2px solid white;
+  padding: 10px;   
+}
+
+  
+img.imgPokedexGrey{
+  border-radius: 100%;
+  width: 70px;
+  // border: 2px solid #FFFFFF;
+  // padding: 10px;
+  background-color: grey;
+}
+
+
+
+img.imgPokedex:hover{
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ulPokedex{
+  list-style-type: none;
+  display: flex;
+  text-align: center;
+  padding-inline-start: none;
+  z-index: 20; 
+  margin-left: 0;     
+}
+
+.liPokedex{
+  width: 90px;
+  border-radius: 15px;
+  padding: 5px;
+  color: white;      
+}
+
+
+.liPokedexName{
+  font-weight : bold;
+  width: 90px;
+  border-radius: 15px;
+  padding: 5px;
+  color: white;    
+  text-transform: uppercase;
+
+}
+
+.liPokedexId{
+  font-weight : lighter;
+  color: white;
+}
+
+
+.liPokedexType{
+  color: white;
+  font-size: large;
+  width: 95px;
+  border-radius: 10px;
+  display: flex;
+  padding-left: 10px;
+  justify-content: space-evenly;
+  align-items: center; 
+}
+
+.liPokedexTypeImage{
+  width: 30%;
+}
 
 /* -------------------------------------------------------------------------- */
 /*                                BAG COMPONENT                               */
@@ -371,7 +451,6 @@ button {
   &::after {
     content: "";
     position: absolute;
-    background-color: #3884C9;
     width: 242px;
     height: 326px;
     z-index: 2;

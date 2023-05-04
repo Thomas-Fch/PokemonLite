@@ -20,7 +20,7 @@ function TagType({ type }) {
     <ul>
       <li className="liPokedexType" style={{ backgroundColor: colors[type] }}>
         <div>{type}</div>
-        <img className="liPokedexTypeImage" src={typeImage} alt="" />
+        <img className="liPokedexTypeImage" src={typeImage} alt="icon" />
       </li>
     </ul>
   );
