@@ -3,8 +3,14 @@ import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import CloseBtn from "./CloseBtn";
 import InputGuess from "./InputGuess";
+import Navbar from "./Navbar";
 
-function PokemonGuesser({ setMode, pokemonsArray, setPokemonWon, setScore }) {
+function PokemonGuesser({
+  pokemonsArray,
+  setPokemonWon,
+  setScore,
+  handleEncounters,
+}) {
   const [turn, setTurn] = useState(0);
   const [index, setIndex] = useState(0);
   const [isGuessed, setIsGuessed] = useState();
@@ -23,6 +29,9 @@ function PokemonGuesser({ setMode, pokemonsArray, setPokemonWon, setScore }) {
     setIsGuessed();
     setTurn(0);
     setScore((prev) => prev + 1);
+    handleEncounters(index);
+    console.info(index);
+    // console.info(pokemonsArray[index]);
   };
 
   const handleClickSkip = () => {
@@ -42,12 +51,16 @@ function PokemonGuesser({ setMode, pokemonsArray, setPokemonWon, setScore }) {
 
   return (
     <div className="guesser-container">
-      <CloseBtn setMode={setMode} />
-      <div className="round">{round} / 10</div>
-      <h1>Who is that pokemon ?</h1>
+      <CloseBtn setScore={setScore} setPokemonWon={setPokemonWon} />
+
       {pokemonToGuess && (
         <div className="guesser-inner-container">
-          <p> {pokemonToGuess.name} </p>
+          <div className="round">
+            {" "}
+            Round <span className="roundNumber">{round}</span> / 10
+          </div>
+          <h2>Who is that pokemon ?</h2>
+          {console.info(pokemonToGuess.name)}
           <InputGuess
             setTurn={setTurn}
             setIsGuessed={setIsGuessed}
@@ -97,15 +110,16 @@ function PokemonGuesser({ setMode, pokemonsArray, setPokemonWon, setScore }) {
           )}
         </div>
       )}
+      <Navbar />
     </div>
   );
 }
 
 PokemonGuesser.propTypes = {
   pokemonsArray: PropTypes.shape([]).isRequired,
-  setMode: PropTypes.func.isRequired,
   setPokemonWon: PropTypes.func.isRequired,
   setScore: PropTypes.func.isRequired,
+  handleEncounters: PropTypes.func.isRequired,
 };
 
 export default PokemonGuesser;
