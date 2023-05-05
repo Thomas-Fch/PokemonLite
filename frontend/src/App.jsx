@@ -98,6 +98,10 @@ function App() {
         path="/Path/Pokedex"
         element={<Pokedex pokemonsArray={pokemonsArray} />}
       />
+      <Route
+        path="/Path/Starter"
+        element={<Starter pokemonsArray={pokemonsArray} />}
+      />
     </Routes>
   );
 }
